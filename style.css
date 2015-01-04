@@ -1,0 +1,206 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,900);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body
+{
+  background: white;
+  color: #2d2d2d;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+header {
+  width: 950px;
+  margin: 0 auto;
+  position: relative;
+  height: 85px;
+  background: white url(logo.png) center left 10px no-repeat;
+}
+header h1 {
+  font-size: 36px;
+  font-weight: 700px;
+  position: absolute;
+  left: 70px;
+  top: 10px;
+}
+header small {
+  position: absolute;
+  left: 70px;
+  top: 50px;
+  font-size: 12px;
+}
+header form#search {
+  background: #EFEFEF;
+  border-radius: 5px;
+  position: absolute;
+  right: 0px;
+  top: 25px;
+  padding: 5px;
+}
+header form#search input {
+  border: 0px;
+  color: #9C9C9C;
+  background: #EFEFEF;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+section#bumper {
+  clear:both;
+  background: #2d2d2d;
+  color: white;
+  height: 270px;
+  margin: 0;
+}
+
+section#bumper > div {
+  margin: 0 auto;
+  width: 950px;
+}
+
+section#bumper > div article {
+  display: table-cell;
+  height: 270px;
+  width: 320px;
+  padding: 10px;
+}
+
+section#bumper > div article h2 {
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 36px;
+  font-weight: 700px;
+}
+
+section#bumper > div article p {
+  max-width: 250px;
+  font-size: 16px;
+}
+
+section#bumper > div article a {
+  display: block;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 20px;
+  width: 165px;
+  background: red url(thumb.png) center right 10px no-repeat;
+}
+
+section#content {
+  background: #EFEFEF;
+  margin: 0;
+}
+section#content > div {
+  margin: 0 auto;
+  width: 950px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  position: relative;
+}
+section#content div#news article {
+  display: block;
+  width: 700px;
+  background: white;
+  border: 1px solid #DBDBDB;
+  box-shadow: 2px 2px 2px #DBDBDB;
+  margin-bottom: 20px;
+}
+section#content div#news article .itemHeader {
+  padding: 20px;
+  padding-left: 80px;
+  background: url(code.png) 20px 20px no-repeat;
+}
+section#content div#news article .itemHeader h3 {
+  font-size: 18px;
+}
+section#content div#news article .itemHeader .author {
+  font-size: 14px;
+  color: #adadad;
+}
+section#content div#news article .body {
+  font-size: 14px;
+  padding: 20px;
+  border-top: 1px solid #DBDBDB;
+}
+
+section#content aside#categories {
+  display: block;
+  background: white;
+  border: 1px solid #DBDBDB;
+  box-shadow: 2px 2px 2px #DBDBDB;
+  width: 220px;
+  position: absolute;
+  top: 40px;
+  right: 0px;
+}
+section#content aside#categories h2 {
+  padding: 30px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #DBDBDB;
+  font-size: 18px;
+}
+section#content aside#categories ul {
+  list-style: none;
+  padding: 30px;
+}
+section#content aside#categories li {
+  font-size: 14px;
+  list-style: none;
+  position: relative;
+  margin-bottom: 3px;
+}
+section#content aside#categories li a {
+  text-decoration: none;
+  color: black;
+  width: 200px;
+}
+section#content aside#categories li span {
+  position: absolute;
+  right: 0px;
+  background: red;
+  color: white;
+  border-radius: 10px;
+  width: 32px;
+  text-align: center;
+  display: inline-block;
+  height: 20px;
+}
+footer {
+  height: 100px;
+  clear: both;
+  border-top: 2px solid #D9D9D9;
+}
+footer > div {
+  margin: 0 auto;
+  width: 950px;
+  clear: both;
+  position: relative;
+}
+footer > div p {
+  color: #bdc3c8;
+  margin-top: 20px;
+}
+footer div#sceneorg {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+footer div#sceneorg a {
+  vertical-align: middle;
+  display: inline-block;
+  width: 96px;
+  height: 58px;
+  text-ident: 100px;
+  overflow: hidden;
+  color: transparent;
+  background: url("sceneorg.png") no-repeat;
+}
