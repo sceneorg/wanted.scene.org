@@ -69,7 +69,7 @@ include_once("header.inc.php");
 
         <label>Sum up your <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> in one succinct sentence.</label>
         <small>(E.g.: <span class='demand'>"Looking for Amiga coder", </span><span class='supply'>"Graphics artist looking for group",</span> <span class='demand'>"Need audio for game", </span>...)</small>
-        <input type='text' name='title' required='yes'/>
+        <input type='text' name='title' required='yes' maxlength='200'/>
 
         <label>Describe what you're looking for.</label>
         <textarea name='contents' required='yes'></textarea>
