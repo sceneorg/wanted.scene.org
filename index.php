@@ -39,7 +39,7 @@ foreach($posts as $post)
 {
 ?>
       <article>
-        <div class='itemHeader'>
+        <div class='itemHeader area_<?=$post->area?>''>
           <h3><?=_html($post->title)?></h3>
           <span class="author">Posted by <?=_html($post->displayName)?> on <?=_html($post->postDate)?></span>
         </div>
@@ -56,7 +56,7 @@ foreach($posts as $post)
       <h2>Categories</h2>
       <ul>
 <?
-$posts = SQLLib::SelectRows("SELECT area, count(*) AS c FROM posts GROUP BY area ORDER BY area");
+$posts = SQLLib::SelectRows("SELECT area, count(*) AS c FROM posts WHERE (expiry IS NULL OR expiry > NOW()) GROUP BY area ORDER BY area");
 foreach($posts as $post)
 {
   $names = array(
