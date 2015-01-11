@@ -12,7 +12,9 @@ body
   color: #2d2d2d;
   font-family: "Roboto", Arial, sans-serif;
 }
-
+input, textarea, select {
+  font-family: "Roboto", Arial, sans-serif;
+}
 header {
   width: 950px;
   margin: 0 auto;
@@ -20,12 +22,17 @@ header {
   height: 85px;
   background: white url(logo.png) center left 10px no-repeat;
 }
+
 header h1 {
   font-size: 36px;
   font-weight: 700px;
   position: absolute;
   left: 70px;
   top: 10px;
+}
+header h1 a {
+  color: black;
+  text-decoration: none;
 }
 header small {
   position: absolute;
@@ -47,7 +54,9 @@ header form#search input {
   background: #EFEFEF;
   font-family: "Roboto", Arial, sans-serif;
 }
-
+header form#search input[type=submit] {
+  color: #000;
+}
 section#bumper {
   clear:both;
   background: #2d2d2d;
@@ -92,12 +101,16 @@ section#bumper > div article a {
   font-weight: bold;
   margin-top: 20px;
   width: 165px;
-  background: red url(thumb.png) center right 10px no-repeat;
+  background: red url(thumb.png) center right 15px no-repeat;
 }
 
 section#content {
   background: #EFEFEF;
   margin: 0;
+  border-top: 2px solid #D9D9D9;
+}
+body#frontpage section#content {
+  border: 0px;
 }
 section#content > div {
   margin: 0 auto;
@@ -106,7 +119,13 @@ section#content > div {
   padding-bottom: 20px;
   position: relative;
 }
-section#content div#news article {
+body#frontpage section#content > div {
+  min-height: 250px;
+}
+body#showposts section#content > div {
+  min-height: 550px;
+}
+section#content div article {
   display: block;
   width: 700px;
   background: white;
@@ -114,25 +133,36 @@ section#content div#news article {
   box-shadow: 2px 2px 2px #DBDBDB;
   margin-bottom: 20px;
 }
-section#content div#news article .itemHeader {
+section#content div article .itemHeader {
   padding: 20px;
   padding-left: 80px;
   background: url(code.png) 20px 20px no-repeat;
 }
-section#content div#news article .itemHeader h3 {
+section#content div article .itemHeader h3 {
   font-size: 18px;
 }
-section#content div#news article .itemHeader .author {
+section#content div article .itemHeader .author {
   font-size: 14px;
   color: #adadad;
 }
-section#content div#news article .body {
+section#content div article .body {
   font-size: 14px;
   padding: 20px;
   border-top: 1px solid #DBDBDB;
 }
+section#content div article#about h2 {
+  padding: 30px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #DBDBDB;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+section#content div article#about p {
+  padding: 30px;
+  padding-top: 0px;
+}
 
-section#content aside#categories {
+section#content aside {
   display: block;
   background: white;
   border: 1px solid #DBDBDB;
@@ -142,28 +172,29 @@ section#content aside#categories {
   top: 40px;
   right: 0px;
 }
-section#content aside#categories h2 {
+section#content aside h2 {
   padding: 30px;
   text-transform: uppercase;
   border-bottom: 1px solid #DBDBDB;
   font-size: 18px;
 }
-section#content aside#categories ul {
+section#content aside ul {
   list-style: none;
   padding: 30px;
 }
-section#content aside#categories li {
+section#content aside li {
   font-size: 14px;
   list-style: none;
   position: relative;
   margin-bottom: 3px;
 }
-section#content aside#categories li a {
+section#content aside li a {
   text-decoration: none;
   color: black;
   width: 200px;
+  display: block;
 }
-section#content aside#categories li span {
+section#content aside li span {
   position: absolute;
   right: 0px;
   background: red;
@@ -173,6 +204,31 @@ section#content aside#categories li span {
   text-align: center;
   display: inline-block;
   height: 20px;
+}
+#search_options form {
+  padding: 20px;
+}
+#search_options input {
+  padding: 5px;
+}
+#search_options ul {
+  padding: 5px !important;
+}
+#search_options input[type=submit] {
+  display: block;
+  margin-top: 10px;
+  border: 0px;
+  border-radius: 5px;
+  background: red;
+  color: white;
+  text-transform: uppercase;
+  width: 50px;
+  font-size: 16px;
+  font-weight: bold;
+}
+#search_options form > label {
+    display: block;
+    margin-top: 10px;
 }
 footer {
   height: 100px;
@@ -191,7 +247,7 @@ footer > div p {
 }
 footer div#sceneorg {
   position: absolute;
-  top: 0px;
+  top: 10px;
   right: 0px;
 }
 footer div#sceneorg a {
