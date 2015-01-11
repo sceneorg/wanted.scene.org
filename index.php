@@ -44,7 +44,7 @@ foreach($posts as $post)
           <span class="author">Posted by <?=_html($post->displayName)?> on <?=_html($post->postDate)?></span>
         </div>
         <div class='body'>
-          <?=shortify($post->contents)?>
+          <?=_html(shortify($post->contents))?>
           <a href='#'>Read more...</a>
         </div>
       </article>

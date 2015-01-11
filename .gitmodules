@@ -1,3 +1,6 @@
 [submodule "sceneid3lib-php"]
 	path = sceneid3lib-php
 	url = https://bitbucket.org/sceneorg/sceneid3lib-php.git
+[submodule "calendarview"]
+	path = calendarview
+	url = https://github.com/Gargaj/calendarview.git

@@ -25,7 +25,7 @@ header {
 
 header h1 {
   font-size: 36px;
-  font-weight: 700px;
+  font-weight: 700;
   position: absolute;
   left: 70px;
   top: 10px;
@@ -83,7 +83,7 @@ section#bumper > div article h2 {
   margin-top: 30px;
   margin-bottom: 10px;
   font-size: 36px;
-  font-weight: 700px;
+  font-weight: 700;
 }
 
 section#bumper > div article p {
@@ -132,6 +132,10 @@ section#content div article {
   border: 1px solid #DBDBDB;
   box-shadow: 2px 2px 2px #DBDBDB;
   margin-bottom: 20px;
+}
+body#addpost section#content div article,
+body#singlepost section#content div article {
+  width: 100%;
 }
 section#content div article .itemHeader {
   padding: 20px;
@@ -229,6 +233,84 @@ section#content aside li span {
 #search_options form > label {
     display: block;
     margin-top: 10px;
+}
+article#addpost h2 {
+  padding: 30px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #DBDBDB;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+article#addpost form {
+  padding: 30px;
+  padding-top: 0px;
+}
+article#addpost form ul {
+  list-style: none;
+}
+article#addpost form #tips {
+  margin-top: 10px;
+}
+article#addpost form #tips ul {
+  list-style: outside;
+  margin-left: 20px;  
+}
+article#addpost form > label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+}
+article#addpost form > small {
+  display: block;
+}
+article#addpost form input:disabled {
+  background: #ccc;
+}
+article#addpost form input[type=text],
+article#addpost form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+article#addpost form textarea {
+  height: 200px;
+}
+article#addpost form input[type=submit] {
+  display: block;
+  margin-top: 10px;
+  border: 0px;
+  border-radius: 5px;
+  background: red;
+  color: white;
+  text-transform: uppercase;
+  width: 250px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.calendar {
+  background: white;
+  font-size: 14px;
+  margin-left: 170px;  
+  border: 1px solid #DBDBDB;
+  box-shadow: 2px 2px 2px #DBDBDB;
+}
+.calendar td {
+  cursor: pointer;
+}
+.calendar td:hover {
+  background: #eee;
+}
+.calendar td, .calendar th {
+  width: 25px;
+  height: 20px;
+  text-align: center;
+}
+.calendar td.selected {
+  background: red;
+  color: white;
+}
+.calendar td.otherDay {
+  color: #ccc;
 }
 footer {
   height: 100px;
