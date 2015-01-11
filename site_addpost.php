@@ -8,18 +8,33 @@ if (!$_SESSION["userID"])
   header("Location: ".ROOT_URL."login/");
   exit();
 }
+global $error;
+$error = "";
 if ($_POST)
 {
-  $post = array();
-  $post["intent"] = $_POST["intent"];
-  $post["area"] = $_POST["area"];
-  $post["title"] = $_POST["title"];
-  $post["contents"] = $_POST["contents"];
-  $post["expiry"] = $_POST["expiry"] == "indefinite" ? null : $_POST["expiryDate"];
-  $post["userID"] = $_SESSION["userID"];
-  $post["postDate"] = date("Y-m-d H:i:s");
-  $id = SQLLib::InsertRow("posts",$post);
-  header("Location: ".ROOT_URL."post/".$id."/".hashify($_POST["title"]) );
+  function validate()
+  {
+    global $error;
+    if ($_POST["expiry"] == "concrete" && $_POST["expiryDate"] <= date("Y-m-d"))
+    {
+      $error = "This post has already expired?!";
+      return false;
+    }
+    return true;
+  }
+  if (validate())
+  {
+    $post = array();
+    $post["intent"] = $_POST["intent"];
+    $post["area"] = $_POST["area"];
+    $post["title"] = $_POST["title"];
+    $post["contents"] = $_POST["contents"];
+    $post["expiry"] = $_POST["expiry"] == "indefinite" ? null : $_POST["expiryDate"];
+    $post["userID"] = $_SESSION["userID"];
+    $post["postDate"] = date("Y-m-d H:i:s");
+    $id = SQLLib::InsertRow("posts",$post);
+    header("Location: ".ROOT_URL."post/".$id."/".hashify($_POST["title"]) );
+  }
 }
 
 include_once("header.inc.php");
@@ -30,6 +45,11 @@ include_once("header.inc.php");
     <article id='addpost'>
 
       <h2>Post a post!</h2>
+      
+      <?
+      if ($error)
+        printf("<div class='error'>%s</div>",$error);
+      ?>
       
       <form method='post'>
 
