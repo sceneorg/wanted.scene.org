@@ -30,6 +30,8 @@ if ($_GET["area"])
   }
   $sql->AddWhere("area IN (".implode(",",$cond).")");
 }
+if ($_GET["expired"] != "on") $sql->AddWhere( "expiry IS NULL OR expiry > NOW()" );
+
 if ($_GET["intent"] == "supply") $sql->AddWhere( "intent='supply'" );
 else 
 if ($_GET["intent"] == "demand") $sql->AddWhere( "intent='demand'" );
@@ -40,7 +42,7 @@ foreach($posts as $post)
 {
 ?>
       <article>
-        <div class='itemHeader'>
+        <div class='itemHeader area_<?=$post->area?>'>
           <h3><?=_html($post->title)?></h3>
           <span class="author">Posted by <?=_html($post->displayName)?> on <?=_html($post->postDate)?></span>
         </div>
@@ -71,6 +73,9 @@ foreach($posts as $post)
           <li><input type='checkbox' id='areaMusic' name='area[music]'<?=($_GET["area"]["music"]!=""?" checked='checked'":"")?>/> <label for='areaMusic'>music</label></li>
           <li><input type='checkbox' id='areaOther' name='area[other]'<?=($_GET["area"]["other"]!=""?" checked='checked'":"")?>/> <label for='areaOther'>other</label></li>
         </ul>
+        <div>
+          <input type='checkbox' id='expired' name='expired'<?=($_GET["expired"]!=""?" checked='checked'":"")?>/> <label for='expired'>Include expired posts</label></li>
+        </div>
         <input type='submit' value='Go!'>
       </form>
     </aside>
