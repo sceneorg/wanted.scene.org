@@ -28,4 +28,17 @@ function split_search_terms( $str )
   return $terms;
 }
 
+function hashify($s) {
+  $hash = strtolower($s);
+  $hash = preg_replace("/[^\w]+/","-",$hash);
+  $hash = preg_replace("/^[_]+/","",$hash);
+  $hash = preg_replace("/[_]+$/","",$hash);
+  $hash = trim($hash,"-");
+  return $hash;
+}
+
+function parse_post($s) {
+  return $s;
+}
+
 ?>

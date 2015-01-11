@@ -7,7 +7,7 @@ $rewriter->addRules(array(
   "^\/+login\/?$" => "login.php",
   "^\/+show-posts\/?$" => "site_showposts.php",
   "^\/+add-post\/?$" => "site_addpost.php",
-  "^\/+post\/?$" => "site_showpost.php",
+  "^\/+post\/(\d+)\/?" => "site_showpost.php?id=$1",
   "^\/+about\/?$" => "site_about.php",
 ));
 $rewriter->rewrite();

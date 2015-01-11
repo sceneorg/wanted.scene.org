@@ -19,7 +19,7 @@ if ($_POST)
   $post["userID"] = $_SESSION["userID"];
   $post["postDate"] = date("Y-m-d H:i:s");
   $id = SQLLib::InsertRow("posts",$post);
-  header("Location: ".ROOT_URL."post/?id=".$id);
+  header("Location: ".ROOT_URL."post/".$id."/".hashify($_POST["title"]) );
 }
 
 include_once("header.inc.php");
