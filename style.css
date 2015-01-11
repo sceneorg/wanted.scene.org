@@ -165,7 +165,25 @@ section#content div article#about p {
   padding: 30px;
   padding-top: 0px;
 }
-
+article a.readmore {
+  display: block;
+  margin-top: 15px;
+  color: red;
+}
+article .expiry {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #ddd;
+  font-weight: 500;
+}
+article .expiry.soon {
+  background: #fa0;
+}
+article .expiry.done {
+  background: #f00;
+  color: white;
+}
 section#content aside {
   display: block;
   background: white;

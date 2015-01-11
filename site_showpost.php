@@ -19,7 +19,20 @@ include_once("header.inc.php");
         <span class="author">Posted by <?=_html($post->displayName)?> on <?=_html($post->postDate)?></span>
       </div>
       <div class='body'>
-        <?=_html($post->contents)?>
+        <?
+        if ($post->expiry)
+        {
+          if ($post->expiry < date("Y-m-d"))
+          {
+            printf("<div class='expiry done'>This post has expired.</div>");
+          }
+          else
+          {
+            printf("<div class='expiry soon'>This %s will expire on %s.</div>",$post->intent=="demand"?"request":"offer",$post->expiry);
+          }
+        }
+        echo parse_post($post->contents);
+        ?>
       </div>
     </article>
   </div>

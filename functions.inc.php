@@ -38,6 +38,8 @@ function hashify($s) {
 }
 
 function parse_post($s) {
+  $s = _html($s);
+  $s = nl2br($s);
   return $s;
 }
 

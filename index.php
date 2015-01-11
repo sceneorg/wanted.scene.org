@@ -45,7 +45,7 @@ foreach($posts as $post)
         </div>
         <div class='body'>
           <?=_html(shortify($post->contents))?>
-          <a href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'>Read more...</a>
+          <a class='readmore' href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'>Read more...</a>
         </div>
       </article>
 <?
