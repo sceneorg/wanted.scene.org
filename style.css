@@ -158,7 +158,6 @@ section#content {
 }
 section#content input[type=submit] {
   display: block;
-  margin: 20px;
   border: 0px;
   border-radius: 5px;
   background: red;
@@ -167,34 +166,40 @@ section#content input[type=submit] {
   font-size: 16px;
   font-weight: bold;
   padding: 3px;
+  margin-top: 20px;
 }
-
 body#frontpage section#content {
   border: 0px;
+}
+body#frontpage section#content > div,
+body#showposts section#content > div {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 20px;
+  padding-top: 0px;
+}
+section#content div#news, 
+section#content div#sidebar {
+  display: table-cell;
+  vertical-align: top;
 }
 section#content > div {
   margin: 0 auto;
   width: 950px;
-  padding-top: 40px;
+  padding-top: 30px;
   padding-bottom: 20px;
   position: relative;
 }
-body#frontpage section#content > div {
-  min-height: 250px;
-}
-body#showposts section#content > div {
-  min-height: 550px;
-}
 section#content div article {
   display: block;
-  width: 700px;
   background: white;
   border: 1px solid #DBDBDB;
   box-shadow: 2px 2px 2px #DBDBDB;
   margin-bottom: 20px;
 }
 body#addpost section#content div article,
-body#singlepost section#content div article {
+body#singlepost section#content div article,
+body#about section#content div article {
   width: 100%;
 }
 section#content div article .itemHeader {
@@ -278,15 +283,15 @@ article .expiry.done {
   background: #f00;
   color: white;
 }
+section#content #sidebar {
+  width: 220px;
+}
 section#content aside {
   display: block;
   background: white;
   border: 1px solid #DBDBDB;
   box-shadow: 2px 2px 2px #DBDBDB;
-  width: 220px;
-  position: absolute;
-  top: 40px;
-  right: 0px;
+  margin-bottom: 20px;
 }
 section#content aside h2 {
   padding: 30px;
@@ -301,16 +306,17 @@ section#content aside ul {
 section#content aside li {
   font-size: 14px;
   list-style: none;
-  position: relative;
   margin-bottom: 3px;
 }
-section#content aside li a {
+section#content aside#categories li {
+  position: relative;
+}
+section#content aside#categories li a {
   text-decoration: none;
   color: black;
-  width: 200px;
   display: block;
 }
-section#content aside li span {
+section#content aside#categories li span {
   position: absolute;
   right: 0px;
   background: red;
@@ -422,6 +428,7 @@ article#sendmessage textarea {
 }
 article#sendmessage input[type=submit] {
   width: 250px;
+  margin: 20px;
 }
 article#singlepost .body a[target=_blank] {
   background: url('data:image/gif;base64,\
@@ -431,7 +438,17 @@ article#singlepost .body a[target=_blank] {
   display: inline-block;
   padding-right: 16px;
 }
-
+aside#addnewpost_bumper a {
+  margin: 20px;
+  background: red;
+  border-radius: 10px;
+  color: white;
+  display: block;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
 footer {
   height: 100px;
   clear: both;

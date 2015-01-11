@@ -12,9 +12,9 @@
 
 <header>
   <h1><a href="<?=ROOT_URL?>">The demoscene's most wanted!</a></h1>
-  <small>Yes we did use coder colors for that logo!</small>
+  <small>Yes we did use coder colors for the logo!</small>
   <form id="search" action="<?=ROOT_URL?>show-posts/" method='GET'>
-    <input type='text' name='q' placeholder='Find something...'>
+    <input type='text' name='q' placeholder='Find something...' required='yes'>
     <input type='submit' value='Go!'>
   </form>
 </header>

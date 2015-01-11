@@ -50,11 +50,28 @@ foreach($posts as $post)
       </article>
 <?
 }
-?>      
+?>
     </div>
-    <aside id="categories">
-      <h2>Categories</h2>
-      <ul>
+    <div id='sidebar'>
+<? if ($_SESSION["userID"]) { ?>
+      <aside id="login">
+        <h2>Your info</h2>
+        <ul>
+          <li><a href="<?=ROOT_URL?>my-posts/">Your current posts</a></li>
+          <li><a href="<?=ROOT_URL?>messages/">Your messages</a></li>
+          <li><a href="<?=ROOT_URL?>add-post/">Add a new post!</a></li>
+          <li><a href="<?=ROOT_URL?>logout/">Log out</a></li>
+        </ul>
+      </aside>
+<? } else { ?>
+      <aside id="login">
+        <h2>Log in!</h2>
+        <a href="<?=ROOT_URL?>login/">Log in via SceneID!</a>
+      </aside>
+<? } ?>
+      <aside id="categories">
+        <h2>Categories</h2>
+        <ul>
 <?
 $posts = SQLLib::SelectRows("SELECT area, count(*) AS c FROM posts WHERE (expiry IS NULL OR expiry > NOW()) GROUP BY area ORDER BY area");
 foreach($posts as $post)
@@ -70,9 +87,10 @@ foreach($posts as $post)
 <?
 }
 ?>
-      </ul>
-      
-    </aside>
+        </ul>
+
+      </aside>
+    </div>
   </div>
 </section>
 <?

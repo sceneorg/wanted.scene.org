@@ -55,30 +55,36 @@ foreach($posts as $post)
 }
 ?>      
     </div>
-    <aside id="search_options">
-      <h2>Search options</h2>
-      <form method='get'>
-        <label>Search terms:</label>
-        <input type='text' name='q' value='<?=_html($_GET["q"])?>'>
-        <label>Are you looking for...</label>
-        <ul>
-          <li><input type='radio' name='intent' id='intentNone' value=''<?=($_GET["intent"]==""?" checked='checked'":"")?>/> <label for='intentNone'>anything</label></li>
-          <li><input type='radio' name='intent' id='intentSupply' value='supply'<?=($_GET["intent"]=="supply"?" checked='checked'":"")?>/> <label for='intentSupply'>offers</label></li>
-          <li><input type='radio' name='intent' id='intentDemand' value='demand'<?=($_GET["intent"]=="demand"?" checked='checked'":"")?>/> <label for='intentDemand'>requests</label></li>
-        </ul>
-        <label>...in the area of...</label>
-        <ul>
-          <li><input type='checkbox' id='areaCode' name='area[code]'<?=($_GET["area"]["code"]!=""?" checked='checked'":"")?>/> <label for='areaCode'>code</label></li>
-          <li><input type='checkbox' id='areaGraphics' name='area[graphics]'<?=($_GET["area"]["graphics"]!=""?" checked='checked'":"")?>/> <label for='areaGraphics'>graphics</label></li>
-          <li><input type='checkbox' id='areaMusic' name='area[music]'<?=($_GET["area"]["music"]!=""?" checked='checked'":"")?>/> <label for='areaMusic'>music</label></li>
-          <li><input type='checkbox' id='areaOther' name='area[other]'<?=($_GET["area"]["other"]!=""?" checked='checked'":"")?>/> <label for='areaOther'>other</label></li>
-        </ul>
-        <div>
-          <input type='checkbox' id='expired' name='expired'<?=($_GET["expired"]!=""?" checked='checked'":"")?>/> <label for='expired'>Include expired posts</label></li>
-        </div>
-        <input type='submit' value='Go!'>
-      </form>
-    </aside>
+    <div id='sidebar'>
+      <aside id="addnewpost_bumper">
+        <h2>Nothing fits your needs?</h2>
+        <a href="<?=ROOT_URL?>add-post/">Click here to post your own request for help or offer of help!</a>
+      </aside>
+      <aside id="search_options">
+        <h2>Search options</h2>
+        <form method='get'>
+          <label>Search terms:</label>
+          <input type='text' name='q' value='<?=_html($_GET["q"])?>'>
+          <label>Are you looking for...</label>
+          <ul>
+            <li><input type='radio' name='intent' id='intentNone' value=''<?=($_GET["intent"]==""?" checked='checked'":"")?>/> <label for='intentNone'>anything</label></li>
+            <li><input type='radio' name='intent' id='intentSupply' value='supply'<?=($_GET["intent"]=="supply"?" checked='checked'":"")?>/> <label for='intentSupply'>offers</label></li>
+            <li><input type='radio' name='intent' id='intentDemand' value='demand'<?=($_GET["intent"]=="demand"?" checked='checked'":"")?>/> <label for='intentDemand'>requests</label></li>
+          </ul>
+          <label>...in the area of...</label>
+          <ul>
+            <li><input type='checkbox' id='areaCode' name='area[code]'<?=($_GET["area"]["code"]!=""?" checked='checked'":"")?>/> <label for='areaCode'>code</label></li>
+            <li><input type='checkbox' id='areaGraphics' name='area[graphics]'<?=($_GET["area"]["graphics"]!=""?" checked='checked'":"")?>/> <label for='areaGraphics'>graphics</label></li>
+            <li><input type='checkbox' id='areaMusic' name='area[music]'<?=($_GET["area"]["music"]!=""?" checked='checked'":"")?>/> <label for='areaMusic'>music</label></li>
+            <li><input type='checkbox' id='areaOther' name='area[other]'<?=($_GET["area"]["other"]!=""?" checked='checked'":"")?>/> <label for='areaOther'>other</label></li>
+          </ul>
+          <div>
+            <input type='checkbox' id='expired' name='expired'<?=($_GET["expired"]!=""?" checked='checked'":"")?>/> <label for='expired'>Include expired posts</label></li>
+          </div>
+          <input type='submit' value='Go!'>
+        </form>
+      </aside>
+    </div>
   </div>
 </section>
 

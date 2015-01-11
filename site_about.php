@@ -23,10 +23,6 @@ include_once("header.inc.php");
 
       
     </article>
-    <aside id="search_options">
-      <h2>Contact us</h2>
-      <p>Write us an email to <a href="mailto:wanted@scene.org">wanted@scene.org</a>!</p>
-    </aside>
   </div>
 </section>
 
