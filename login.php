@@ -4,6 +4,7 @@ require_once("functions.inc.php");
 
 if (!$_GET["code"])
 {
+  $_SESSION["__return"] = $_GET["return"];
   $sceneID->PerformAuthRedirect();
   exit();
 }
@@ -31,5 +32,5 @@ $userID = (int)$SceneIDuser["user"]["id"];
 
 $_SESSION["userID"] = $userID;
 
-header("Location: ".ROOT_URL);
+header("Location: ".($_SESSION["__return"] ? $_SESSION["__return"] : ROOT_URL));
 ?>

@@ -5,7 +5,7 @@ include_once("bootstrap.inc.php");
 
 if (!$_SESSION["userID"])
 {
-  header("Location: ".ROOT_URL."login/");
+  header("Location: ".ROOT_URL."login/?return=".rawurlencode( ROOT_URL."add-post/" ));
   exit();
 }
 global $error;
@@ -86,6 +86,7 @@ include_once("header.inc.php");
             </li>
             <li>What tools do you use? What formats can your work in?</li>
             <li class='supply'>Do you have a portfolio? (E.g., Demozoo profile, Pou&euml;t, <span class='code other'>Github, </span><span class='music other'>Soundcloud, Modarchive, </span><span class='graphics other'>Artcity, DeviantART, </span>...)</li>
+            <li>Whoever is interested will be able to contact you in email through this website; you don't need to provide an email address.</li>
           </ul>
         </small>
 
