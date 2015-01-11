@@ -24,6 +24,7 @@ if (!$SceneIDuser["success"] || !$SceneIDuser["user"]["id"])
 $user = array();
 $user["sceneID"] = (int)$SceneIDuser["user"]["id"];
 $user["displayName"] = $SceneIDuser["user"]["display_name"];
+$user["email"] = $SceneIDuser["user"]["email"];
 SQLLib::UpdateOrInsertRow("users",$user,"sceneID=".(int)$user["sceneID"]);
 
 $userID = (int)$SceneIDuser["user"]["id"];

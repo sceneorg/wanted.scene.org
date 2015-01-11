@@ -20,4 +20,5 @@ else if (class_exists("SceneID3"))
     "redirectURI" => ROOT_URL . "login/",
   ) );
 }
+$sceneID->SetScope(array("basic","user:email"));
 ?>
