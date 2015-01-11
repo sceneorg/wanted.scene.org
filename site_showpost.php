@@ -14,7 +14,7 @@ include_once("header.inc.php");
 ?>
 <section id="content">
   <div>
-    <article>
+    <article id='singlepost'>
       <div class='itemHeader area_<?=$post->area?>''>
         <h3><?=_html($post->title)?></h3>
         <span class="author">Posted by <?=_html($post->displayName)?> on <?=_html($post->postDate)?></span>
@@ -40,7 +40,7 @@ include_once("header.inc.php");
     <article id='sendmessage'>
       <h2>Interested? Get in touch with <?=_html($post->displayName)?>!</h2>
       <form action='post'>
-        <textarea name="message"></textarea>
+        <textarea name="message" required="yes"></textarea>
         <input type='submit' value='Send message!'/>
       </form>
     </article>

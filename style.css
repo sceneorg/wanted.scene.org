@@ -334,8 +334,8 @@ section#content aside li span {
   width: 50px;
 }
 #search_options form > label {
-    display: block;
-    margin-top: 10px;
+  display: block;
+  margin-top: 10px;
 }
 article#addpost h2 {
   padding: 30px;
@@ -423,6 +423,15 @@ article#sendmessage textarea {
 article#sendmessage input[type=submit] {
   width: 250px;
 }
+article#singlepost .body a[target=_blank] {
+  background: url('data:image/gif;base64,\
+    R0lGODlhCwALALMAANjY2OLi4tnZ2e7u7sDAwOPj4+vr68zMzP///1FMTAAAAAAAAAAAAAAAAAAA\
+    AAAAACH5BAAAAAAALAAAAAALAAsAAAQmECGTqq0yJMlRGgWwXR4pYZh3qum4tt25lZcVe8Qh3skh\
+    1wmBJAIAOw==') right center no-repeat;
+  display: inline-block;
+  padding-right: 16px;
+}
+
 footer {
   height: 100px;
   clear: both;
