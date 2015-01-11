@@ -140,6 +140,8 @@ body#singlepost section#content div article {
 section#content div article .itemHeader {
   padding: 20px;
   padding-left: 80px;
+}
+section#content div article .itemHeader.area_code {
   background: url(code.png) 20px 20px no-repeat;
 }
 section#content div article .itemHeader h3 {
@@ -169,6 +171,16 @@ article a.readmore {
   display: block;
   margin-top: 15px;
   color: red;
+}
+.error {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #ddd;
+  font-weight: 500;
+  background: #f00;
+  color: white;
+  margin: 20px;
 }
 article .expiry {
   border-radius: 10px;

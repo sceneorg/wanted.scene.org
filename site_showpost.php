@@ -14,7 +14,7 @@ include_once("header.inc.php");
 <section id="content">
   <div>
     <article>
-      <div class='itemHeader'>
+      <div class='itemHeader area_<?=$post->area?>''>
         <h3><?=_html($post->title)?></h3>
         <span class="author">Posted by <?=_html($post->displayName)?> on <?=_html($post->postDate)?></span>
       </div>
