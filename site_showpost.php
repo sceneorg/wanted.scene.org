@@ -9,6 +9,7 @@ if (!$post)
   header("Location: ".ROOT_URL."show-posts/");
   exit();
 }
+$TITLE = $post->title;
 include_once("header.inc.php");
 ?>
 <section id="content">
