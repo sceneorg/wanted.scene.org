@@ -327,6 +327,39 @@ section#content aside#categories li span {
   display: inline-block;
   height: 20px;
 }
+section#content aside#login a {
+  background: url('data:image/png;base64,\
+    iVBORw0KGgoAAAANSUhEUgAAAKAAAAA7CAMAAADLsHGfAAAAY1BMVEUPGU1LU3qHjKbExtPT1d6m\
+    qb1pcJBaYYUeJ1j////x8fUtNmPi4+k8RG+Xm7JFIT94fpu1uMjmORd7KTKxMSQcG0pSIzzMNR6W\
+    LSu+MyFgJTmIKy83H0OjLygqHUbZNxptJzWqEJxPAAAEYElEQVR4Xu1WR5LkMAyzsnPo3BP3/69c\
+    RcMayls1J++hcZhRsdQWBJAUqw1eeOGFF16oDR8VH7KQVsJC6Sy2yKbplxQbGKv9jxe3k2UEjLJb\
+    WzHXCF0i3Pp8yXF++/oHvbEJkGwNqSahNynG2xST4S6tXXHRJAiQ0X0Ktivvj1PAtyd7Ini+VWUM\
+    slkRGTJLBdBhW98AreNSNz+gktJiuzUZc4tEvIKnEi7Xon6On5iZFusJ2lEYWVd1RiXaQ+ti7rBO\
+    RS4sSjwaVnfGfabDVZRxW7mTOxI8Rxpnu/46FfEsMbQU+iCcGW0gclnqahVTDj4GC92xdj171ZJA\
+    taWl041lihq7Ja4/Iwvn5HQq41IQMHkIQEoHo/3piIXkY/5qS4egzWTuFovlh2wULupxjyQmqEkx\
+    EYLMCphHtI2sB+BwmavO/dmsAnigokOGIppulji49WOP4IMQ5ISgJJJWncsvwsUGK0rQam1yAYRd\
+    wNWniz4pNZQ40athGRkwzhQjXLqkKlQ2XkDxw6HFL94ihc+tmtfA/QZFKwDi9Cw/Z6xy1G0SEHs0\
+    jka2DV5/kwmQ7vaOIs5bIkq8nIS+SwuzdXigKsvElXElQ+vhmazR8cFm4Lp1Hn1DnKtta75lLTHh\
+    CoIECg/GjsOLz0qmR7E28NZGM62i47OviUFzgb4exP+ODL42er2DBUynYKHxqzo2LvQTdBXZN0Av\
+    uPFSd3myKe9zLxugFeOcS5S1REoQEUpRRsdnkqaAUDPzF9kp4hZbpeIMN5i2rj6Jnykr79UOWN/4\
+    4kBzA1g4b+Fmq9jwo1wX/8NV4TyP4eqDyEX4l1HL8H717i8QXV9YqT8pBILjzmfpFKZ4bIp4onIh\
+    K4FCL9EwjphXiM6kiFNbprhsXH2jcqEJAaVu/AuCyAU4TgnSKs3nGsp/H/w3BJELcHwsE9yfVm/Y\
+    gCa0jzERzPM79TY6BbXUcRZ7AUCnVcw1H7RPg05RksE7NxcHHhoU1PG6ITVGi+D6myIG5kBjzIat\
+    ro59kBW284LjPcLAzrT6xIY/mCRy1N12qjEh2WEoa1sW1GkHdEyd5oXc8T5WGh7ATtov0WkVbGgR\
+    0+Y3eopsadIQ41bSnzEot4ydup3DSygcg2QpdbxzTwkP31TrN1HEhE25iOGLg4hvcSKNYBrex7AW\
+    cX+Nh444ruNbIsP/Ic+x+y+LWOPpbM0q64Igx/kJ3mEyrcJxs/kmt6rTaZWy+dqdp+s5CLXougLY\
+    4omLGcFu7D07FWl0nOvsqpx36zelZ4dvZq6iiEtN6CDA1XJLwdNyDODqRz7XUP4HAa7mcw2tkWMA\
+    VyFXeVo9COVp9Yp3BKYfA7habil3vIPHAK4WW8ofaHoMytPqO+H3eQQ1Oq1+JgXPHhdbwehBxyB3\
+    9XkigKTHIHd1j9/zuAzEtAq7Cb6PMZhOq7f/jx9cTXZTXA565IrTKsX9uA5Np9U7Yfe4VQdjOgdM\
+    3uIM03RQ7b7wwgsv/AUfMIVeeaZgvgAAAABJRU5ErkJggg==');
+  width: 160px;
+  height: 59px;
+  overflow: hidden;
+  text-indent: 200px;
+  line-height: 80px;
+  display: block;
+  margin: 25px;
+}
 #search_options form {
   padding: 20px;
 }

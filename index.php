@@ -54,7 +54,7 @@ foreach($posts as $post)
     </div>
     <div id='sidebar'>
 <? if ($_SESSION["userID"]) { ?>
-      <aside id="login">
+      <aside id="profile">
         <h2>Your info</h2>
         <ul>
           <li><a href="<?=ROOT_URL?>my-posts/">Your current posts</a></li>
