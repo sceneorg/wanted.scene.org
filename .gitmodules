@@ -1,0 +1,3 @@
+[submodule "sceneid3lib-php"]
+	path = sceneid3lib-php
+	url = https://bitbucket.org/sceneorg/sceneid3lib-php.git
