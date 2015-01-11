@@ -9,7 +9,7 @@ if (!$post)
   header("Location: ".ROOT_URL."show-posts/");
   exit();
 }
-$TITLE = $post->title;
+$TITLE = shortify($post->title);
 include_once("header.inc.php");
 ?>
 <section id="content">
@@ -36,6 +36,15 @@ include_once("header.inc.php");
         ?>
       </div>
     </article>
+<? if ($_SESSION["userID"]) { ?>
+    <article id='sendmessage'>
+      <h2>Interested? Get in touch with <?=_html($post->displayName)?>!</h2>
+      <form action='post'>
+        <textarea name="message"></textarea>
+        <input type='submit' value='Send message!'/>
+      </form>
+    </article>
+<? } ?>
   </div>
 </section>
 <?
