@@ -51,9 +51,11 @@ include_once("header.inc.php");
         ?>
       </div>
     </article>
-<? 
-if ($_SESSION["userID"] && $post->userID != $_SESSION["userID"]) 
-{ 
+<?
+if ($_SESSION["userID"])
+{
+  if ($post->userID != $_SESSION["userID"])
+  {
 ?>
     <div id='sendmessage' class="box">
       <h2>Interested? Get in touch with <?=_html($post->displayName)?>!</h2>
@@ -62,7 +64,8 @@ if ($_SESSION["userID"] && $post->userID != $_SESSION["userID"])
         <input type='submit' value='Send message!'/>
       </form>
     </div>
-<? 
+<?
+  }
 }
 else
 {
@@ -71,7 +74,7 @@ else
       <h2>Interested? Log in to get in touch with <?=_html($post->displayName)?>!</h2>
       <a href="<?=ROOT_URL?>login/">Log in via SceneID!</a>
     </div>
-<? 
+<?
 }
 ?>
   </div>
