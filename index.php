@@ -53,7 +53,7 @@ foreach($posts as $post)
       <aside id="profile">
         <h2>Your info</h2>
         <ul>
-          <li><a href="<?=ROOT_URL?>my-posts/">Your current posts</a></li>
+          <li><a href="<?=ROOT_URL?>show-posts/?mine=true">Your current posts</a></li>
           <li><a href="<?=ROOT_URL?>messages/">Your messages</a></li>
           <li><a href="<?=ROOT_URL?>add-post/">Add a new post!</a></li>
           <li><a href="<?=ROOT_URL?>logout/">Log out</a></li>

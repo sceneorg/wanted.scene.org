@@ -36,6 +36,9 @@ if ($_GET["intent"] == "supply") $sql->AddWhere( "intent='supply'" );
 else 
 if ($_GET["intent"] == "demand") $sql->AddWhere( "intent='demand'" );
 
+if ($_GET["mine"] && $_SESSION["userID"]) 
+  $sql->AddWhere( sprintf_esc( "userID = %d", $_SESSION["userID"] ) );
+
 $sql->SetLimit(10);
 $posts = SQLLib::SelectRows( $sql->GetQuery() );
 foreach($posts as $post)
