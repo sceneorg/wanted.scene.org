@@ -39,8 +39,13 @@ if ($_GET["intent"] == "demand") $sql->AddWhere( "intent='demand'" );
 if ($_GET["mine"] && $_SESSION["userID"]) 
   $sql->AddWhere( sprintf_esc( "userID = %d", $_SESSION["userID"] ) );
 
-$sql->SetLimit(10);
-$posts = SQLLib::SelectRows( $sql->GetQuery() );
+$perPage = 10;
+$curPage = isset($_GET["page"]) ? ($_GET["page"] - 1) : 0;
+$sql->SetLimit($perPage,$curPage * $perPage);
+$sql = $sql->GetQuery();
+$sql = preg_replace("/^SELECT/i","SELECT SQL_CALC_FOUND_ROWS",$sql);
+$posts = SQLLib::SelectRows( $sql );
+$total = SQLLib::SelectRow( "SELECT FOUND_ROWS() AS cnt" )->cnt;
 foreach($posts as $post)
 {
 ?>
@@ -55,6 +60,20 @@ foreach($posts as $post)
         </div>
       </article>
 <?
+}
+if ($total > count($posts))
+{
+  printf("<div id='pagination'>\n");
+  printf("  <ul>\n");
+  $pageCount = (int)ceil($total / (float)$perPage);
+  $str = $_GET;
+  for ($x = 0; $x < $pageCount; $x++)
+  { 
+    $str["page"] = $x + 1;
+    printf("    <li%s><a href='%s'>%d</a></li>\n",($x == $curPage) ? " class='current'" : "",ROOT_URL."show-posts/?".http_build_query($str),$x+1);
+  }
+  printf("  </ul>\n");
+  printf("</div>\n");
 }
 ?>      
     </div>
@@ -84,6 +103,11 @@ foreach($posts as $post)
           <div>
             <input type='checkbox' id='expired' name='expired'<?=($_GET["expired"]!=""?" checked='checked'":"")?>/> <label for='expired'>Include expired posts</label></li>
           </div>
+          <? if ($_SESSION["userID"]) { ?>
+          <div>
+            <input type='checkbox' id='mine' name='mine'<?=($_GET["mine"]!=""?" checked='checked'":"")?>/> <label for='mine'>My posts only</label></li>
+          </div>
+          <? } ?>
           <input type='submit' value='Go!'>
         </form>
       </aside>

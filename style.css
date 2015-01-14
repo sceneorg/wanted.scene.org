@@ -15,6 +15,9 @@ body
 input, textarea, select {
   font-family: "Roboto", Arial, sans-serif;
 }
+a {
+  color: red;
+}
 header {
   width: 950px;
   margin: 0 auto;
@@ -561,6 +564,33 @@ aside#addnewpost_bumper a {
   padding: 10px;
   text-align: center;
   text-decoration: none;
+}
+#pagination {
+  display: block;
+  background: white;
+  border: 1px solid #DBDBDB;
+  box-shadow: 2px 2px 2px #DBDBDB;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+#pagination ul {
+  text-align: center;
+  font-size: 12px;
+}
+#pagination li {
+  display: inline-block;
+}
+#pagination li a {
+  display: inline-block;
+  padding: 3px 6px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+#pagination li.current a {
+  background: red;
+  color: white;
 }
 footer {
   height: 100px;
