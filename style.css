@@ -613,16 +613,50 @@ ul#conversationList li a {
   color: black;
   display: block;
   padding: 20px;
+  padding-left: 75px;
   border-bottom: 1px solid #DBDBDB;
 }
+ul#conversationList li.read a {
+  background: url('data:image/png;base64,\
+    iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAABU1BMVEXZ2dkAAADZ2dkODg6CgoLQ\
+    0NA6OjofHx8BAQElJSUrKys4ODgCAgI9PT1AQEBLS0tcXFxfX19lZWV0dHQDAwOIiIiurq66urrL\
+    y8sJCQnS0tLY2NgNDQ0nJycgICDX19fIyMhHR0dISEgQEBDV1dXW1tavr68WFhYxMTF/f39paWk+\
+    Pj6/v79OTk5zc3NWVlYiIiJdXV1FRUUoKChqamptbW1vb28FBQUuLi6wsLCysrK0tLRoaGi9vb0X\
+    FxfBwcEYGBgaGhqSkpKYmJhPT09RUVFJSUnR0dHDw8PHx8fU1NRZWVnKyspaWlo2NjadnZ2fn5/O\
+    zs7Pz88dHR0eHh7T09MMDAypqamsrKyBgYEPDw8GBgZeXl55eXm3t7e5ubl6enp7e3t8fHwvLy+A\
+    gIALCwsUFBRgYGAmJiZmZmaHh4cyMjKKioqPj481NTVbW1utra100y28AAAAAXRSTlMAQObYZgAA\
+    AYNJREFUeF611VVvMzEQhtHMeCHMzAxlZmZm+pgZ/z92s43SxN6OpZX6XB/5zu84+LAvBxlaJMFi\
+    Ui33SEZpuUdpoqYTNZ1NLoLaqf/Xz7TorfXuB+/XtehhkvfWXB0AX6L4Gkr7Ihf1+TcoqQaYAt8q\
+    70V+NArbqgki8Dch43sTELzugI9R9zzHOV3UYKDaBbFX+X7P8YstGBkpPxQ2wAZzLRK8BcEauE0N\
+    oBngM/gJPudZRlBMAMql4dOeKMHzIXzkcWb4EMXdgUSXa2EN4hig+Il3OtPhZcYYKJuVFME9zpsX\
+    Blci7ZIIP757KwRvjg0CtJCZxRGYPtggeO5NZgb86pnSLrkJuvqOen0yjJkdCIHZ0qw+hHdZmqMa\
+    Ad974/Et5/AC4n8Zx8IfMAscoJy32wD9EwSrKHKHFcfbiUYsjQJ3PMFx6G0B5Ty3hFx1RnxWl8Dn\
+    U8QSDH85Hv/XW+hqnRiaejPFXvaWXfnN6WfcSNrbH3j7x0bubR9Kubd95MVoew+1NjsQwVtrMgAA\
+    AABJRU5ErkJggg==') no-repeat;
+  background-position: 16px 22px;
+}
 ul#conversationList li.unread a {
+  background: url('data:image/png;base64,\
+    iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAyVBMVEX/AAD/AAD/AAD/AAD/AAD/\
+    AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/\
+    AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/\
+    AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/////IiL/VVX/iIj/mZn/zMz/3d3/7u7/ERH/d3f/\
+    MzP/Zmb/qqr/u7v/RETLRxrRAAAAM3RSTlMAAwYJDA8SFRseJEhLTlFUV1pdYGxvcnh+gYeKjZOW\
+    maKltLe6vcbJzM/S1dvh5Ort+fx09O2SAAABjklEQVR4Xp2WeVuCQBCHJ0XLJEsyO8gOMCUjNGa5\
+    BI/6/h8qCoU9QFffP31e5/nNLsMAPM3Oo2khomsZutqAndS7Q6RxjctatdyfooDTq/hD5xNLsdsg\
+    cjLASh7EDt9wB4bC2uc27mTSou0zB/dgnxa2MsG9jIsDekEJBlv7CqVob6I4crqdxblDSW7+i88K\
+    wRf5KXTnr3wvlxcxKWHu5YIGAONcj+NAJCTfuWACtDCHzJFG/NVtgkbpcSLaPl1EhWdKJ4GoR7Su\
+    w4jWyYK3Q0LrBkzplDFXP4kIU90Gl9a9iKyp/Ms5CT1anwF7BklIoiV1Dwv2vL44HTEg8WobO/aR\
+    111Ox1XWQLImkYecPmNbzRKn/fmrNHaCvG7DiNOzwilByV2b8Fx23X4QeFii66Ad8MygeugjBmN5\
+    3WTGIyKlBLmgMcOXrOclBOzwwb30aB/z4oCunK7ChlcZ+wm2KB/7bat23Atbfh3IL5ujVpn8ohRR\
+    bsvWcL8OVdSvh1zorrCzxU+Id0yxDP2iwQu/L/VO9TNxslAAAAAASUVORK5CYII=') no-repeat;
+  background-position: 16px 22px;
   color: red;
 }
 ul#conversation li span.author, ul#conversationList li time {
-  color: #888;
-  font-style: italic;
-  font-size: 10px;
   display: block;
+  font-size: 14px;
+  color: #adadad;
 }
 #profile .unread {
   font-weight: bold;
@@ -646,10 +680,16 @@ aside#addnewpost_bumper a {
   text-align: center;
   text-decoration: none;
 }
+#about {
+  padding-bottom: 30px;
+}
 #about h3 {
   margin-bottom: 10px;
   margin-left: 30px;
   margin-top: 20px;
+}
+#profile form {
+  padding: 30px;
 }
 #pagination {
   padding: 10px;
