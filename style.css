@@ -59,10 +59,12 @@ header h1 {
   font-size: 36px;
   font-weight: 700;
   position: absolute;
-  left: 70px;
+  left: 0px;
   top: 10px;
 }
 header h1 a {
+  padding-left: 70px;
+  display: inline-block;
   color: black;
   text-decoration: none;
 }

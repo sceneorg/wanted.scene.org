@@ -5,6 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="<?=ROOT_URL?>style.css" media="screen" />
   <link rel="shortcut icon" href="<?=ROOT_URL?>favicon.ico" type="image/x-icon"/>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="<?=ROOT_URL?>rss/"/>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
   <script type="text/javascript" src="<?=ROOT_URL?>calendarview.js"></script>
 </head>
