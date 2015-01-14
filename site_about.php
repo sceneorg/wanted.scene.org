@@ -9,17 +9,27 @@ include_once("header.inc.php");
   <div>
     <article id='about'>
 
-    <h2>So what is this site?</h2>
+    <h2>Why this is useful for you</h2>
+
+    <h3>Find the skills you need or offer what you got</h3>
     
-<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb. </p>
-
-<p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing. </p>
-
-<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb. </p>
-
-<p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing. </p>
-
-<p>Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people. Like pit bulls. The dog of dogs. Pit bull can be the right man's best friend... or the wrong man's worst enemy. You going to give me a dog for a pet, give me a pit bull. Give me... Raoul. Right, Omar? Give me Raoul. </p>
+    <p>Ever had a great idea for a demo but insufficient means to get it done? Tired of trying to find collaborators on IRC or pou&euml;t.net and getting no useful response?</p>
+    
+    <p>On <i>Wanted!</i> you can ask your peers for help and get them excited for your projects - no matter what kind.</p>
+    
+    <p>But even if you're a seasoned veteran - if you have skills in one particular field, a lot of time on your hands but nobody to work with or just looking for some side-projects, this is the place where you can offer help out others do cool stuff.</p>
+    
+    <h3>Easy, hassle free communication</h3>
+    
+    <p>Sign in, post your offer or need and wait for the responses to come in. Every discussion between you and others is private - free from negative and nonsensical public comments.</p>
+    
+    <h3>Built on SceneID</h3>
+    
+    <p>If you're already active in the Demoscene you probably have a SceneID - and if you do, you can start posting right away. If you don't, signup is really easy (and free)!</p>
+    
+    <h3>That's it?</h3>
+    
+    <p>That's it. Now go on, collaborate already!</p>
 
       
     </article>
