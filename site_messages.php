@@ -28,6 +28,22 @@ if ($_POST)
     $a["message"] = $_POST["message"];
     $id = SQLLib::InsertRow("messages",$a);
     header("Location: ".ROOT_URL."messages/?recipient=".$user->sceneID."#c".$id);
+
+    if ($user->wantsMail)
+    {
+      $myUser = SQLLib::SelectRow(sprintf_esc("select * from users where sceneID = %d",$_SESSION["userID"]));
+      $msg = "";
+      $msg .= "Hi!\n";
+      $msg .= "\n";
+      $msg .= $myUser->displayName." has responded to your message on Wanted!\n";
+      $msg .= "\n";
+      $msg .= "You can read their message and respond here:\n";
+      $msg .= ROOT_URL."message/?recipient=".$myUser->sceneID."#c".$id."\n";
+      $msg .= "\n";
+      $msg .= "Hugs,\n";
+      $msg .= "the Wanted! mailing robot\n";
+      myMail( $user->email, "You have received a message from ".$myUser->displayName."!", $msg, "From: wanted@scene.org" );
+    }
   }
 }
 
@@ -37,7 +53,7 @@ if ($_GET["recipient"])
 ?>
 <section id="content">
   <div>
-    <div id='messages'>
+    <div id='messages' class='box'>
 <?
 printf("<h2>Conversation with %s</h2>",_html($user->displayName));
 
@@ -63,7 +79,7 @@ echo "</ul>\n";
 ?>    
     </div>
     
-    <div id='sendmessage'>
+    <div id='sendmessage' class='box'>
       <h2>Send a message to <?=_html($user->displayName)?>:</h2>
       <form method='post'>
         <textarea name="message" required="yes"></textarea>
@@ -80,7 +96,7 @@ else
 ?>
 <section id="content">
   <div>
-    <div id='messagelist'>
+    <div id='messagelist' class='box'>
 <?
 printf("<h2>Your conversations</h2>");
 
