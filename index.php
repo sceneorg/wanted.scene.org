@@ -60,6 +60,7 @@ $unread = SQLLib::SelectRow( sprintf_esc("select count(*) as cnt from messages w
       <aside id="profile" class="box">
         <h2>Your info</h2>
         <ul>
+          <li><a href="<?=ROOT_URL?>profile/">Your settings</a></li>
           <li><a href="<?=ROOT_URL?>show-posts/?mine=true">Your current posts</a></li>
           <li><a href="<?=ROOT_URL?>messages/">Your messages<?=($unread?sprintf(" - <span class='unread'>%d new!</span>",$unread):"")?></a></li>
           <li><a href="<?=ROOT_URL?>add-post/">Add a new post!</a></li>
