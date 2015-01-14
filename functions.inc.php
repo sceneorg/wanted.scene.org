@@ -54,4 +54,12 @@ function myMail( $to, $subject, $message = "", $additional_headers = "", $additi
   
   return mail( $to, $subject, $message, $additional_headers, $additional_parameters );
 }
+
+function hideEmail( $email )
+{
+  return preg_replace_callback("/([a-zA-Z0-9]*)/",function($m){ 
+    return str_pad(substr($m[1],0,2),strlen($m[1]),"*"); 
+  },$email);
+}
+
 ?>

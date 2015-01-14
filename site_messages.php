@@ -27,23 +27,23 @@ if ($_POST)
     $a["postDate"] = date("Y-m-d H:i:s");
     $a["message"] = $_POST["message"];
     $id = SQLLib::InsertRow("messages",$a);
-    header("Location: ".ROOT_URL."messages/?recipient=".$user->sceneID."#c".$id);
 
     if ($user->wantsMail)
     {
-      $myUser = SQLLib::SelectRow(sprintf_esc("select * from users where sceneID = %d",$_SESSION["userID"]));
       $msg = "";
       $msg .= "Hi!\n";
       $msg .= "\n";
-      $msg .= $myUser->displayName." has responded to your message on Wanted!\n";
+      $msg .= $currentUser->displayName." has responded to your message on Wanted!\n";
       $msg .= "\n";
       $msg .= "You can read their message and respond here:\n";
-      $msg .= ROOT_URL."message/?recipient=".$myUser->sceneID."#c".$id."\n";
+      $msg .= ROOT_URL."message/?recipient=".$currentUser->sceneID."#c".$id."\n";
       $msg .= "\n";
       $msg .= "Hugs,\n";
       $msg .= "the Wanted! mailing robot\n";
-      myMail( $user->email, "You have received a message from ".$myUser->displayName."!", $msg, "From: wanted@scene.org" );
+      myMail( $user->email, "You have received a message from ".$currentUser->displayName."!", $msg, "From: wanted@scene.org" );
     }
+    header("Location: ".ROOT_URL."messages/?recipient=".$user->sceneID."#c".$id);
+    exit();
   }
 }
 
@@ -112,8 +112,8 @@ foreach($threads as $thread)
   printf("<li class='%s'>",($thread->userSender == $thread->otherUser && !$thread->read)?"unread":"read");
   printf("<a href='%smessages/?recipient=%d'>",ROOT_URL,$thread->otherUser);
   printf("<h3>%s</h3>",_html($thread->displayName));
-  echo shortify($thread->message,200);
   printf("<time>%s</time>",$thread->postDate);
+  echo shortify($thread->message,200);
   printf("</a>");
   printf("</li>\n");
 }

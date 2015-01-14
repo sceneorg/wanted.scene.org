@@ -3,6 +3,8 @@ include_once("sqllib.inc.php");
 include_once("functions.inc.php");
 include_once("sceneid3lib-php/sceneid3.inc.php");
 
+@session_start();
+
 $sceneID = null;
 if (TEST_MODE && class_exists("MySceneID"))
 {
@@ -21,4 +23,8 @@ else if (class_exists("SceneID3"))
   ) );
 }
 $sceneID->SetScope(array("basic","user:email"));
+
+$currentUser = null;
+if ($_SESSION["userID"])
+  $currentUser = SQLLib::SelectRow(sprintf_esc("select * from users where sceneID = %d",$_SESSION["userID"]));
 ?>
