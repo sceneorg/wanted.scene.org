@@ -44,4 +44,14 @@ function parse_post($s) {
   return $s;
 }
 
+function myMail( $to, $subject, $message = "", $additional_headers = "", $additional_parameters = "" )
+{
+  if (TEST_MODE === true)
+  {
+    file_put_contents("out.email.txt",$to . "\n\n" . $subject . "\n\n" . $message );
+    return true;
+  }
+  
+  return mail( $to, $subject, $message, $additional_headers, $additional_parameters );
+}
 ?>

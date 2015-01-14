@@ -4,7 +4,7 @@ include_once("functions.inc.php");
 include_once("sceneid3lib-php/sceneid3.inc.php");
 
 $sceneID = null;
-if (POUET_TEST && class_exists("MySceneID"))
+if (TEST_MODE && class_exists("MySceneID"))
 {
   $sceneID = new MySceneID( array(
     "clientID" => SCENEID_USER,

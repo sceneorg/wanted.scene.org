@@ -12,6 +12,8 @@ define('SCENEID_URL', 'https://fakocka.hopto.org/wanted/login/');
 
 define('ROOT_URL','http://fakocka.hopto.org/wanted/');
 
+define('TEST_MODE',true);
+
 require_once( "sceneid3lib-php/sceneid3.inc.php");
 
 class MySceneID extends SceneID3 
