@@ -47,6 +47,10 @@ foreach($posts as $post)
 <?
 }
 ?>
+  <div id='pagination'>
+    <a href="<?=ROOT_URL?>show-posts/">Read more posts &raquo;</a>
+  </div>
+
     </div>
     <div id='sidebar'>
 <? if ($_SESSION["userID"]) { ?>
