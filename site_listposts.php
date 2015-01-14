@@ -78,11 +78,11 @@ if ($total > count($posts))
 ?>      
     </div>
     <div id='sidebar'>
-      <aside id="addnewpost_bumper">
+      <aside id="addnewpost_bumper" class="box">
         <h2>Nothing fits your needs?</h2>
         <a href="<?=ROOT_URL?>add-post/">Click here to post your own request for help or offer of help!</a>
       </aside>
-      <aside id="search_options">
+      <aside id="search_options" class="box">
         <h2>Search options</h2>
         <form method='get'>
           <label>Search terms:</label>

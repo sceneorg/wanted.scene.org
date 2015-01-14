@@ -9,6 +9,21 @@ if (!$post)
   header("Location: ".ROOT_URL."show-posts/");
   exit();
 }
+$delivered = false;
+if ($_POST && $_SESSION["userID"])
+{
+  if ($_POST["message"])
+  {
+    $a = array();
+    $a["userSender"] = $_SESSION["userID"];
+    $a["userRecipient"] = $post->userID;
+    $a["postDate"] = date("Y-m-d H:i:s");
+    $a["message"] = $_POST["message"];
+    SQLLib::InsertRow("messages",$a);
+    $delivered = true;
+  }
+}
+
 $TITLE = shortify($post->title);
 include_once("header.inc.php");
 ?>
@@ -36,15 +51,29 @@ include_once("header.inc.php");
         ?>
       </div>
     </article>
-<? if ($_SESSION["userID"]) { ?>
-    <article id='sendmessage'>
+<? 
+if ($_SESSION["userID"] && $post->userID != $_SESSION["userID"]) 
+{ 
+?>
+    <div id='sendmessage' class="box">
       <h2>Interested? Get in touch with <?=_html($post->displayName)?>!</h2>
-      <form action='post'>
+      <form method='post' action='<?=ROOT_URL?>messages/?recipient=<?=$post->userID?>'>
         <textarea name="message" required="yes"></textarea>
         <input type='submit' value='Send message!'/>
       </form>
-    </article>
-<? } ?>
+    </div>
+<? 
+}
+else
+{
+?>
+    <div id='loginbox' class='box'>
+      <h2>Interested? Log in to get in touch with <?=_html($post->displayName)?>!</h2>
+      <a href="<?=ROOT_URL?>login/">Log in via SceneID!</a>
+    </div>
+<? 
+}
+?>
   </div>
 </section>
 <?

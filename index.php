@@ -53,23 +53,26 @@ foreach($posts as $post)
 
     </div>
     <div id='sidebar'>
-<? if ($_SESSION["userID"]) { ?>
-      <aside id="profile">
+<?
+if ($_SESSION["userID"]) { 
+$unread = SQLLib::SelectRow( sprintf_esc("select count(*) as cnt from messages where userRecipient = %d and `read` = 0",$_SESSION["userID"]) )->cnt;
+?>
+      <aside id="profile" class="box">
         <h2>Your info</h2>
         <ul>
           <li><a href="<?=ROOT_URL?>show-posts/?mine=true">Your current posts</a></li>
-          <li><a href="<?=ROOT_URL?>messages/">Your messages</a></li>
+          <li><a href="<?=ROOT_URL?>messages/">Your messages<?=($unread?sprintf(" - <span class='unread'>%d new!</span>",$unread):"")?></a></li>
           <li><a href="<?=ROOT_URL?>add-post/">Add a new post!</a></li>
           <li><a href="<?=ROOT_URL?>logout/">Log out</a></li>
         </ul>
       </aside>
 <? } else { ?>
-      <aside id="login">
+      <aside id="login" class="box">
         <h2>Log in!</h2>
         <a href="<?=ROOT_URL?>login/">Log in via SceneID!</a>
       </aside>
 <? } ?>
-      <aside id="categories">
+      <aside id="categories" class="box">
         <h2>Categories</h2>
         <ul>
 <?

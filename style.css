@@ -224,12 +224,18 @@ section#content > div {
   padding-bottom: 20px;
   position: relative;
 }
-section#content div article {
+section#content div article, .box {
   display: block;
   background: white;
   border: 1px solid #DBDBDB;
   box-shadow: 2px 2px 2px #DBDBDB;
   margin-bottom: 20px;
+}
+.box h2 {
+  padding: 30px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #DBDBDB;
+  font-size: 18px;
 }
 body#addpost section#content div article,
 body#singlepost section#content div article,
@@ -369,19 +375,6 @@ article .expiry.done {
 section#content #sidebar {
   width: 220px;
 }
-section#content aside {
-  display: block;
-  background: white;
-  border: 1px solid #DBDBDB;
-  box-shadow: 2px 2px 2px #DBDBDB;
-  margin-bottom: 20px;
-}
-section#content aside h2 {
-  padding: 30px;
-  text-transform: uppercase;
-  border-bottom: 1px solid #DBDBDB;
-  font-size: 18px;
-}
 section#content aside ul {
   list-style: none;
   padding: 30px;
@@ -440,6 +433,57 @@ section#content aside#login a {
   overflow: hidden;
   text-indent: 200px;
   line-height: 80px;
+  display: block;
+  margin: 25px;
+}
+#loginbox a {
+  background: url('data:image/png;base64,\
+    iVBORw0KGgoAAAANSUhEUgAAASwAAAAwCAMAAACcwLcTAAAA81BMVEUPGU3///+HjKYeJ1jx8fXi\
+    4+nExtOmqb08RG9pcJBLU3rT1d4tNmO1uMh4fpuXm7LoRSZaYYX72tT97er739n3u7D0rJ3vfWf9\
+    8O385ODpUjTmORf3wrfzo5Psa1H98u/xkX7xkH374Nv/+fj86OT+8/H/+/r+9vX+9fP2tajudFz1\
+    s6b5z8b97+xFIT/739rrXkP86ub74dvzm4rsaE/whnL50cnwiHTZNxqIKy/++/r97On61s9gJTm+\
+    MyH62tPxk4D++PZtJzXrXEH2uq75zsXMNR6WLSv61M3ymYj99PL/+vk3H0N7KTLtc1r4ycBSIzw2\
+    +I2LAAAHeElEQVR4Xu1ZZ5PjOg50MyrLE8PmnF7O8XLO9/9/za0AWm1SO3vPr2pq93zuD1MsciBA\
+    zRYA0qvbO+Lj1f8v/kfJOpB1IOtA1oGse69xS0af3iNkijiQpQwBwEsZPsU2Xpz8+OucrANZDwDg\
+    YhrdwgJPH2yTdSDrDgCsp9EFlsDXW2QdyDoGcCKjMxDEOck6kHUC4FRGjwDcf5hwfnb6HBN+s35/\
+    yOqM6d4pWS8AfCijKwCf3ybWZ38DgA/eH7IMYG/KQWOM/FXU1ZvIegUAd2V4H8DxZp4f5tX7Q1YP\
+    f2MOAtrXg4gN/NGSrLsA8CrrIYj1cwAn15JV7bLNlnu1A5KRMc00aBFujCyHKJQR9YKsDwG8KHoI\
+    4vhtZEW4HVRO5zughU/Gss+AuSmurD4bGDXcCLgFWacTHewh2LfPOf+SZJWPR7eDyjHsnkdSxDUw\
+    SazahfDdXTXiYZilgKok62ROVMczMcQfAHx2nbKC22Gfaxfsz1CWq1NiJ2c3g0F2/miiTMAhyVoD\
+    wJ2Ztk8Ksj4TKt95gg9oydnNIMLlHpqSrNS1P5h7iD8XZJ3I3DsnyyGSs5tBQMjL7QDYgqyXAPCp\
+    XD7M7Tpxay6QJKtu4WM36TSEbjMDBBNC/XocwjAGAH1R/GTVhjAOvWNdzlZz9MFMT5sGAfCTvUcr\
+    z26TNTFoUBOsaQG06XlNDwDRrpLz4EDzKjoAvdgBI8ttKWOWO9zPewgFm7CvtsmqtLa61/5GfZpt\
+    sUGz3ac4pqg5NzeYQbayMlebNOiAQaU0W9i8qhOVhuC6aewhUC2OULT2Dc4NFN6qO8ZBqWVkfa5d\
+    eyqGj9c5WedJdyQrAGH0CFafply5aGQDZRJwvYkefCGmywGiwbEFwhvJsg6YN7ZbefSrKgQPhBC6\
+    Rq1NquqEB+LohZ7O6b8ooRFw49HghQlTODdcZDFk1B59SRa79tOsGLIJ+2j7IN3oBtRMJBEY7RSl\
+    lzcAvCx24B5R1BHOWO2f3BvJMnM74tDrNBu6Aagtq3qxEVb8hqS62g2y0FoNps+ce3kVXbRA2MRX\
+    A00ekmJx88cDNXGqnQPJ6gGbdXEd0FK2omb6KusZpR3gC7L6JCwJV8PWXpRmI7AsVBoUv3bQrXXy\
+    hWkqSs4Zi9fFNN/DL4ohM0V587d+rAdqgk0YyYqaDxnxOG8yMLI5oaApavbHDLxIEGbORx5BpMTk\
+    S6PyPN0zqAiuUCdVi750XosjXQxKp9JIY3bcxc0fD9SEEnin+AyB2DFij8AMzq0haxQ1dbcJnIhq\
+    59CqNIbNTsy5nkY8ZzEfwkXLPeFZyTYmSvY3GiBj6eFsM8QgL6RzNKeMFeXZ7/y6YvgXkjUF5rQW\
+    asT6HmSHfQoFTVGTQZoxpVUqBQndOgRKScxotNRlLUFVpZ5BoClF70DU09zRshiSLCaqOZc/vX1d\
+    MWSfZQevRTogKEVkh30KWeNhotTd8pjt4fUJyp2WEDVjpqLECGucBJWdhxoIfG+OqlXpvEqLQRbV\
+    kHmq9FHe/P0qaWxZDEmWwsYk3DFlD7LDraGgKeql7gggShqR1N8BkVJKZvRF/RC2BUwihGTFmnuS\
+    O+ci58h16SO/+VONPSrI+gTAVUlW+kiYo8gOt2ZZDMNbdCdLrQhLaO3hLKWkZjSiLonUATAcmi/6\
+    ph4tF1msmaf4KZAsdu08UOe4JIEkS0tVipjRAYZbQ9Z4uCODZC2TXq30y8BQSmpGo6UuSYbhK+Yx\
+    lKIvr9c8YlYMrddhQnHzd0GN5SfDsyVZNTCmiA1wxMjIHQXNhH697lQtDl4HQMuix95JjJa6pBSG\
+    6U/Ux1lxp+xauyqcy6LXxY43f7KlgpgLjzd/2YGaYBNGsuJoV51xcF2KuAJaPVQDFbeGguYX8Rbd\
+    abhArWtAQ/3JTLTMImU+tNHYVTU6OCtpe+hW3QhfySPHqcY6Vy2dOyBO095Vm/gsEJsJxgvpRHnz\
+    pxojeFokWT0S6jniFoD3MsmtyQovc3OuuwIBcEl1iJTAhkdDo0yXGoEDlIKIhFb9paVat4/dpi4q\
+    zCZDNSBiFhwTVZbLCepOMPczgGdLwkM+wqzmTND8oKg7Jh1i2NgCrih6I1jpCl3yrX2jMoMgWjHk\
+    ErdPWePikYydhpDQF8LnzV+hMeKv4NwfVfK1MSYlqSal0mnKVMKObRq74ipRNdX8VwaLakbbSk2z\
+    pxnTrLrJiPNEN2hQisoYM3SbJYmNIWwGtGs4N3kQyHoGJqo8lxNfbt8G/ukn/Dayv8hv/r6aNUZ8\
+    sJ3z//0TfhvZX+Q3f2czMcQTAE/S+NsdflffQ+Q3f49EYxm+AYB/pYl/LB1kV3w93GqPkd/8XSWN\
+    EetLAM9+x/ROEI2SpYe5PQabTmpsC+snFBbb9wUAmKYZHFPWXoI3f9QYcfEDAFymjvS31zqI7Oz2\
+    Gbz522js9w8Vd8+OTzDh2Zf/tW2wkZ3dHoM3f6qxJZ59oVz94q0OumZgj7ivyG7+jrHE5T81t/99\
+    dUC6+TtPh50Sz++shapJVgdkv9d/j218dHX8xUTVL7+Tvv2A/wAF+fEp0wRh+wAAAABJRU5ErkJg\
+    gg==');\
+  display: block;
+  width: 300px;
+  height: 48px;
+  overflow: hidden;
+  text-indent: 200px;
+  line-height: 120px;
   display: block;
   margin: 25px;
 }
@@ -528,23 +572,61 @@ article#addpost form input[type=submit] {
 .calendar td.otherDay {
   color: #ccc;
 }
-article#sendmessage h2 {
-  padding: 20px;
-  text-transform: uppercase;
-  border-bottom: 1px solid #DBDBDB;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-article#sendmessage textarea {
+div#sendmessage textarea {
   margin: 20px;
   width: calc(100% - 40px);
   height: 200px;
   display: block;
   padding: 10px;
 }
-article#sendmessage input[type=submit] {
+div#sendmessage input[type=submit] {
   width: 250px;
   margin: 20px;
+}
+div#sentmessage {
+  padding: 20px;
+}
+div#messagelist h2 {
+  margin-bottom: 0px;
+}
+ul#conversation {
+  list-style: none;
+  margin-bottom: 30px;
+}
+ul#conversation li {
+  display: block;
+  background: #eee;
+  margin: 10px 30px;
+  border-radius: 10px;
+  padding: 10px;
+}
+ul#conversation li.theirs {
+  margin-right: 100px;
+}
+ul#conversation li.ours {
+  margin-left: 100px;
+}
+ul#conversationList li {
+  list-style: none;
+}
+ul#conversationList li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 20px;
+  border-bottom: 1px solid #DBDBDB;
+}
+ul#conversationList li.unread a {
+  color: red;
+}
+ul#conversation li span.author, ul#conversationList li time {
+  color: #888;
+  font-style: italic;
+  font-size: 10px;
+  display: block;
+}
+#profile .unread {
+  font-weight: bold;
 }
 article#singlepost .body a[target=_blank] {
   background: url('data:image/gif;base64,\
@@ -566,11 +648,6 @@ aside#addnewpost_bumper a {
   text-decoration: none;
 }
 #pagination {
-  display: block;
-  background: white;
-  border: 1px solid #DBDBDB;
-  box-shadow: 2px 2px 2px #DBDBDB;
-  margin-bottom: 20px;
   padding: 10px;
 }
 #pagination ul {
