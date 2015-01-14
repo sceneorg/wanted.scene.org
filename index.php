@@ -6,23 +6,19 @@ include_once("header.inc.php");
 ?>
 <section id="bumper">
   <div>
-    <article>
+    <article id="demand">
       <h2>I want</h2>
-<?
-$count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='demand' AND (expiry IS NULL OR expiry > NOW())")->c;
-?>
+<? $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='demand' AND (expiry IS NULL OR expiry > NOW())")->c; ?>
       <p>Currently, <?=$count?> people are looking for somebody to help them with their projects!</p>
       <a href="<?=ROOT_URL?>show-posts/?intent=demand">I can help!</a>
     </article>
-    <article>
+    <article id="supply">
       <h2>I offer</h2>
-<?
-$count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='supply' AND (expiry IS NULL OR expiry > NOW())")->c;
-?>
+<? $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='supply' AND (expiry IS NULL OR expiry > NOW())")->c; ?>
       <p>At the same time, <?=$count?> people are offering their skills to help out others!</p>
       <a href="<?=ROOT_URL?>show-posts/?intent=supply">I need help!</a>
     </article>
-    <article>
+    <article id="about">
       <h2>I... wat?</h2>
       <p>You don't know what this is about? No problem, we're all about sharing!</p>
       <a href="<?=ROOT_URL?>about/">Tell me!</a>
