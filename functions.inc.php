@@ -62,4 +62,14 @@ function hideEmail( $email )
   },$email);
 }
 
+function dateDiffReadable( $a, $b )
+{
+  if (is_string($a)) $a = strtotime($a);
+  if (is_string($b)) $b = strtotime($b);
+  $dif = $a - $b;
+  if ($dif < 60) return "a few moments ago"; $dif /= 60;
+  if ($dif < 60) return (int)$dif." minutes ago"; $dif /= 60;
+  if ($dif < 24) return (int)$dif." hours ago"; $dif /= 24;
+  return (int)$dif." days ago";
+}
 ?>

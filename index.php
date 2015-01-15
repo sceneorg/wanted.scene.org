@@ -37,7 +37,7 @@ foreach($posts as $post)
       <article>
         <div class='itemHeader area_<?=$post->area?>''>
           <h3><a href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'><?=_html($post->title)?></a></h3>
-          <span class="author">Posted by <?=_html($post->displayName)?> on <?=_html($post->postDate)?></span>
+          <span class="author">Posted by <?=_html($post->displayName)?> <?=sprintf("<time title='%s'>%s</time>",$post->postDate,dateDiffReadable(time(),$post->postDate))?></span>
         </div>
         <div class='body'>
           <?=_html(shortify($post->contents,500))?>

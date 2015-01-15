@@ -76,7 +76,7 @@ echo "<ul id='conversation'>\n";
 foreach($messages as $message)
 {
   printf("<li class='%s' id='c%d'>",$message->userSender == $_SESSION["userID"]?"ours":"theirs",$message->id);
-  printf("<span class='author'>%s - <time>%s</time>",_html($message->displayName),$message->postDate);
+  printf("<span class='author'>%s - <time title='%s'>%s</time>",_html($message->displayName),$message->postDate,dateDiffReadable(time(),$message->postDate));
   if ($message->relatedPost)
     echo " - referring to the post <a href='".ROOT_URL."post/".$message->relatedPost."/".hashify($message->title)."'>"._html($message->title)."</a>";
   echo "</span>";
@@ -121,7 +121,7 @@ foreach($threads as $thread)
   printf("<li class='%s'>",($thread->userSender == $thread->otherUser && !$thread->read)?"unread":"read");
   printf("<a href='%smessages/?recipient=%d'>",ROOT_URL,$thread->otherUser);
   printf("<h3>%s</h3>",_html($thread->displayName));
-  printf("<time>%s</time>",$thread->postDate);
+  printf("<time title='%s'>%s</time>",$thread->postDate,dateDiffReadable(time(),$thread->postDate));
   echo shortify($thread->message,200);
   printf("</a>");
   printf("</li>\n");
