@@ -38,7 +38,7 @@ if ($post->userID == $_SESSION["userID"] || ($currentUser && $currentUser->isAdm
 }
 ?>
         <h3><?=_html($post->title)?></h3>
-        <span class="author">Posted by <?=_html($post->displayName)?> <?=sprintf("<time title='%s'>%s</time>",$post->postDate,dateDiffReadable(time(),$post->postDate))?></span>
+        <span class="author">Posted by <?=_html($post->displayName)?> <?=sprintf("<time datetime='%s'>%s</time>",$post->postDate,dateDiffReadable(time(),$post->postDate))?></span>
       </div>
       <div class='body'>
         <?

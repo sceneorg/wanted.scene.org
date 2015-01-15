@@ -8,6 +8,14 @@
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?=ROOT_URL?>rss/"/>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
   <script type="text/javascript" src="<?=ROOT_URL?>calendarview.js"></script>
+<script type="text/javascript">
+<!--
+document.observe("dom:loaded",function(){
+  // browsers should do this by default
+  $$("time").each(function(item){ item.setAttribute("title",item.getAttribute("datetime")); });
+});
+//-->
+</script>  
 </head>
 <body<?=($BODY_ID?" id='"._html($BODY_ID)."'":"")?>>
 
