@@ -252,7 +252,9 @@ section#content div article .itemHeader a {
   color: black;
 }
 section#content div article .itemHeader .expired {
-  color: red;
+  background: none repeat scroll 0 0 red;
+  color: white;
+  padding: 2px 8px;
   text-transform: uppercase;
 }
 section#content div article .itemHeader a.editlink {
