@@ -23,13 +23,13 @@ include_once("header.inc.php");
 
     <p>Sign in, post your offer or need and wait for the responses to come in. Every discussion between you and others is private - free from negative and nonsensical public comments.</p>
 
-    <h3>Built on SceneID</h3>
+    <h3>Built on <a href="https://id.scene.org/">SceneID</a></h3>
 
     <p>If you're already active in the Demoscene you probably have a SceneID - and if you do, you can start posting right away. If you don't, signup is really easy (and free)!</p>
 
     <h3>That's it?</h3>
 
-    <p>That's it. Now go on, collaborate already!</p>
+    <p>That's it. Now go on, <a href="<?=ROOT_URL?>show-posts">collaborate already</a>!</p>
 
 
     </article>
