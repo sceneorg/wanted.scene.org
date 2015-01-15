@@ -29,7 +29,7 @@ if ($_GET["area"])
 if ($_GET["expired"] != "on") $sql->AddWhere( "expiry IS NULL OR expiry > NOW()" );
 
 if ($_GET["intent"] == "supply") $sql->AddWhere( "intent='supply'" );
-else 
+else
 if ($_GET["intent"] == "demand") $sql->AddWhere( "intent='demand'" );
 
 $sql->SetLimit(10);

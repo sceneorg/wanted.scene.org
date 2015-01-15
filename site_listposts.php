@@ -33,10 +33,10 @@ if ($_GET["area"])
 if ($_GET["expired"] != "on") $sql->AddWhere( "expiry IS NULL OR expiry > NOW()" );
 
 if ($_GET["intent"] == "supply") $sql->AddWhere( "intent='supply'" );
-else 
+else
 if ($_GET["intent"] == "demand") $sql->AddWhere( "intent='demand'" );
 
-if ($_GET["mine"] && $_SESSION["userID"]) 
+if ($_GET["mine"] && $_SESSION["userID"])
   $sql->AddWhere( sprintf_esc( "userID = %d", $_SESSION["userID"] ) );
 
 $perPage = 10;
@@ -68,14 +68,14 @@ if ($total > count($posts))
   $pageCount = (int)ceil($total / (float)$perPage);
   $str = $_GET;
   for ($x = 0; $x < $pageCount; $x++)
-  { 
+  {
     $str["page"] = $x + 1;
     printf("    <li%s><a href='%s'>%d</a></li>\n",($x == $curPage) ? " class='current'" : "",ROOT_URL."show-posts/?".http_build_query($str),$x+1);
   }
   printf("  </ul>\n");
   printf("</div>\n");
 }
-?>      
+?>
     </div>
     <div id='sidebar'>
       <aside id="addnewpost_bumper" class="box">

@@ -54,7 +54,7 @@ foreach($posts as $post)
     </div>
     <div id='sidebar'>
 <?
-if ($_SESSION["userID"]) { 
+if ($_SESSION["userID"]) {
 $unread = SQLLib::SelectRow( sprintf_esc("select count(*) as cnt from messages where userRecipient = %d and `read` = 0",$_SESSION["userID"]) )->cnt;
 ?>
       <aside id="profile" class="box">

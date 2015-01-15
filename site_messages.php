@@ -85,9 +85,9 @@ foreach($messages as $message)
   echo "</li>";
 }
 echo "</ul>\n";
-?>    
+?>
     </div>
-    
+
     <div id='sendmessage' class='box'>
       <h2>Send a message to <?=_html($user->displayName)?>:</h2>
       <form method='post'>
@@ -95,7 +95,7 @@ echo "</ul>\n";
         <input type='submit' value='Send message!'/>
       </form>
     </div>
-    
+
   </div>
 </section>
 <?
@@ -127,7 +127,7 @@ foreach($threads as $thread)
   printf("</li>\n");
 }
 echo "</ul>\n";
-?>    
+?>
     </div>
   </div>
 </section>

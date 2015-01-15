@@ -60,12 +60,12 @@ include_once("header.inc.php");
     <article id='editpost' class='submitform box'>
 
       <h2>Post a post!</h2>
-      
+
       <?
       if ($error)
         printf("<div class='error'>%s</div>",$error);
       ?>
-      
+
       <form method='post'>
 
         <label>What do you want to post about?</label>
@@ -110,11 +110,11 @@ include_once("header.inc.php");
           <li><input type='radio' name='expiry' value='indefinite'<?=($prev["expiry"]=="indefinite"?" checked='checked'":"")?> id='expiryIndefinite' required='yes'/> <label for='expiryIndefinite'>Indefinitely, the offer stands until it's removed.</label></li>
           <li><input type='radio' name='expiry' value='concrete'  <?=($prev["expiry"]=="concrete"  ?" checked='checked'":"")?> id='expiryConcrete'/> <label for='expiryConcrete'>The offer expires on</label> <input name='expiryDate' id='expiryDate' value="<?=date("Y-m-d",time() + 60 * 60 * 24 * 30)?>"/></li>
         </ul>
-        
+
         <input type='submit' value='Submit post!'/>
         <input type='submit' name='delete' id='deletePost' value='Delete post!'/>
       </form>
-    
+
     </article>
   </div>
 </section>
