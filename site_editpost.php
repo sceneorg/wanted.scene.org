@@ -34,6 +34,7 @@ if ($_POST)
   }
   if ($_POST["delete"])
   {
+    SQLLib::Query("update messages set relatedPost=null where relatedPost=".(int)$_GET["id"]);
     SQLLib::Query("delete from posts where id=".(int)$_GET["id"]);
     header("Location: ".ROOT_URL."show-posts/?mine=true#success" );
   }
