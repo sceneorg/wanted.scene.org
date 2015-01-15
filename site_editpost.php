@@ -45,8 +45,8 @@ if ($_POST)
     $post["title"] = $_POST["title"];
     $post["contents"] = $_POST["contents"];
     $post["expiry"] = $_POST["expiry"] == "indefinite" ? null : $_POST["expiryDate"];
-    $post["userID"] = $_SESSION["userID"];
-    $post["postDate"] = date("Y-m-d H:i:s");
+    //$post["userID"] = $_SESSION["userID"];
+    //$post["postDate"] = date("Y-m-d H:i:s");
     SQLLib::UpdateRow("posts",$post,"id=".(int)$_GET["id"]);
     header("Location: ".ROOT_URL."post/".(int)$_GET["id"]."/".hashify($_POST["title"]) );
   }
@@ -111,7 +111,7 @@ include_once("header.inc.php");
           <li><input type='radio' name='expiry' value='concrete'  <?=($prev["expiry"]=="concrete"  ?" checked='checked'":"")?> id='expiryConcrete'/> <label for='expiryConcrete'>The <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> expires on</label> <input name='expiryDate' id='expiryDate' value="<?=date("Y-m-d",time() + 60 * 60 * 24 * 30)?>"/></li>
         </ul>
 
-        <input type='submit' value='Submit post!'/>
+        <input type='submit' value='Apply changes'/>
         <input type='submit' name='delete' id='deletePost' value='Delete post!'/>
       </form>
 
