@@ -692,10 +692,14 @@ ul#conversationList li time {
   font-size: 14px;
   color: #adadad;
 }
+ul#conversation li span.author a {
+  color: #f88;
+}
 #profile .unread {
   font-weight: bold;
 }
-article#singlepost .body a[target=_blank] {
+article#singlepost .body a[target=_blank],
+ul#conversation a[target=_blank] {
   background: url('data:image/gif;base64,\
     R0lGODlhCwALALMAANjY2OLi4tnZ2e7u7sDAwOPj4+vr68zMzP///1FMTAAAAAAAAAAAAAAAAAAA\
     AAAAACH5BAAAAAAALAAAAAALAAsAAAQmECGTqq0yJMlRGgWwXR4pYZh3qum4tt25lZcVe8Qh3skh\
