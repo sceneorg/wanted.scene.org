@@ -87,6 +87,7 @@ include_once("header.inc.php");
             <li>What tools do you use? What formats can your work in?</li>
             <li class='supply'>Do you have a portfolio? (E.g., Demozoo profile, Pou&euml;t, <span class='code other'>Github, </span><span class='music other'>Soundcloud, Modarchive, </span><span class='graphics other'>Artcity, DeviantART, </span>...)</li>
             <li>Whoever is interested will be able to contact you in email through this website; you don't need to provide an email address.</li>
+            <li class='demand'>Currently we do not allow commercial job offers. If you still wish to post one, <a href="mailto:staff@scene.org">send us a mail</a>!</li>
           </ul>
         </small>
 
