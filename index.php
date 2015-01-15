@@ -58,7 +58,7 @@ if ($_SESSION["userID"]) {
 $unread = SQLLib::SelectRow( sprintf_esc("select count(*) as cnt from messages where userRecipient = %d and `read` = 0",$_SESSION["userID"]) )->cnt;
 ?>
       <aside id="profile" class="box">
-        <h2>Your info</h2>
+        <h2>Hi, <?=_html($currentUser->displayName)?>!</h2>
         <ul>
           <li><a href="<?=ROOT_URL?>profile/">Your settings</a></li>
           <li><a href="<?=ROOT_URL?>show-posts/?mine=true">Your current posts</a></li>
