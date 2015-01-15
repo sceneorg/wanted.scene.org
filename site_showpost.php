@@ -46,7 +46,7 @@ if ($post->userID == $_SESSION["userID"] || ($currentUser && $currentUser->isAdm
         {
           if ($post->expiry < date("Y-m-d"))
           {
-            printf("<div class='expiry done'>This post has expired.</div>");
+            printf("<div class='expiry done'>This post has expired on %s.</div>",$post->expiry);
           }
           else
           {
