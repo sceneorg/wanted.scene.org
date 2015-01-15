@@ -686,7 +686,8 @@ ul#conversationList li.unread a {
   background-position: 16px 22px;
   color: red;
 }
-ul#conversation li span.author, ul#conversationList li time {
+ul#conversation li span.author, 
+ul#conversationList li time {
   display: block;
   font-size: 14px;
   color: #adadad;

@@ -26,6 +26,8 @@ if ($_POST)
     $a["userRecipient"] = $user->sceneID;
     $a["postDate"] = date("Y-m-d H:i:s");
     $a["message"] = $_POST["message"];
+    if(isset($_POST["relatedPost"]))
+      $a["relatedPost"] = $_POST["relatedPost"];
     $id = SQLLib::InsertRow("messages",$a);
 
     if ($user->wantsMail)
@@ -61,16 +63,23 @@ SQLLib::UpdateRow("messages",array("read"=>1),sprintf_esc("userSender = %d and u
 
 $s = new SQLSelect();
 $s->AddTable("messages");
+$s->AddField("messages.*");
+$s->AddField("users.*");
+$s->AddField("posts.title");
 $s->AddWhere(sprintf_esc("((userSender = %d and userRecipient = %d) or (userSender = %d and userRecipient = %d))",
   $_SESSION["userID"],$user->sceneID,$user->sceneID,$_SESSION["userID"]));
 $s->AddJoin("left","users","messages.userSender = users.sceneID");
+$s->AddJoin("left","posts","messages.relatedPost = posts.id");
 $s->AddOrder("postDate");
 $messages = SQLLib::SelectRows( $s->GetQuery() );
 echo "<ul id='conversation'>\n";
 foreach($messages as $message)
 {
   printf("<li class='%s' id='c%d'>",$message->userSender == $_SESSION["userID"]?"ours":"theirs",$message->id);
-  printf("<span class='author'>%s - <time>%s</time></span>",_html($message->displayName),$message->postDate);
+  printf("<span class='author'>%s - <time>%s</time>",_html($message->displayName),$message->postDate);
+  if ($message->relatedPost)
+    echo " - referring to the post <a href='".ROOT_URL."post/".$message->relatedPost."/".hashify($message->title)."'>"._html($message->title)."</a>";
+  echo "</span>";
   echo parse_post($message->message);
   //printf("",$message->postDate);
   echo "</li>";

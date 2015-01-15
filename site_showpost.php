@@ -67,6 +67,7 @@ if ($_SESSION["userID"])
       <h2>Interested? Get in touch with <?=_html($post->displayName)?>!</h2>
       <form method='post' action='<?=ROOT_URL?>messages/?recipient=<?=$post->userID?>'>
         <textarea name="message" required="yes"></textarea>
+        <input type='hidden' name='relatedPost' value='<?=$post->id?>'/>
         <input type='submit' value='Send message!'/>
       </form>
     </div>
