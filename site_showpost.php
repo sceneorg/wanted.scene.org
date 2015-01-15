@@ -31,6 +31,12 @@ include_once("header.inc.php");
   <div>
     <article id='singlepost'>
       <div class='itemHeader area_<?=$post->area?>''>
+<?
+if ($post->userID == $_SESSION["userID"] || ($currentUser && $currentUser->isAdmin))
+{
+  printf("<a href='".ROOT_URL."edit-post/?id=%d' class='editlink'>Edit</a>",$post->id);
+}
+?>
         <h3><?=_html($post->title)?></h3>
         <span class="author">Posted by <?=_html($post->displayName)?> on <?=_html($post->postDate)?></span>
       </div>

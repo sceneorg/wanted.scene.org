@@ -238,6 +238,7 @@ section#content div article, .box {
   font-size: 18px;
 }
 body#addpost section#content div article,
+body#editpost section#content div article,
 body#singlepost section#content div article,
 body#about section#content div article {
   width: 100%;
@@ -250,6 +251,23 @@ section#content div article .itemHeader a {
   text-decoration: none;
   color: black;
 }
+section#content div article .itemHeader .expired {
+  color: red;
+  text-transform: uppercase;
+}
+section#content div article .itemHeader a.editlink {
+  float: right;
+  display: block;
+  border: 0px;
+  border-radius: 5px;
+  background: red;
+  color: white;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 3px 8px;
+}
+
 section#content div article .itemHeader.area_code {
   background: url('data:image/png;base64,\
     iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAABblBMVEXZ2dnZ2dnZ2dnZ2dnZ2dnZ\
@@ -502,50 +520,65 @@ section#content aside#login a {
   display: block;
   margin-top: 10px;
 }
-article#addpost h2 {
+article.submitform {
+  position: relative;
+}
+article.submitform h2 {
   padding: 30px;
   text-transform: uppercase;
   border-bottom: 1px solid #DBDBDB;
   font-size: 18px;
   margin-bottom: 30px;
 }
-article#addpost form {
+article.submitform form {
   padding: 30px;
   padding-top: 0px;
 }
-article#addpost form ul {
+article.submitform form ul {
   list-style: none;
 }
-article#addpost form #tips {
+article.submitform form #tips {
   margin-top: 10px;
 }
-article#addpost form #tips ul {
+article.submitform form #tips ul {
   list-style: outside;
   margin-left: 20px;  
 }
-article#addpost form > label {
+article.submitform form > label {
   display: block;
   margin-top: 20px;
   font-weight: bold;
 }
-article#addpost form > small {
+article.submitform form > small {
   display: block;
 }
-article#addpost form input:disabled {
+article.submitform form input:disabled {
   background: #ccc;
 }
-article#addpost form input[type=text],
-article#addpost form textarea {
+article.submitform form input[type=text],
+article.submitform form textarea {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
 }
-article#addpost form textarea {
+article.submitform form textarea {
   height: 200px;
 }
-article#addpost form input[type=submit] {
+article.submitform form input[type=submit] {
   width: 250px;
 }
+section#content input[type="submit"]#deletePost {
+  background: red url('data:image/png;base64,\
+    iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEX/////////////////////\
+    //////////////////////////////////////////9Or7hAAAAAD3RSTlMAMxF37t0iVYjMu2aq\
+    RJnKnvz3AAAAX0lEQVR4XmMAAiYFBghgdYMy7H9BGEz+/y+AGRz//08AM/K/i3wHM85/5P8KYjD+\
+    /83/3wDI4Pr/Wf6/E5BR/x8IfgAZ80Ei/xUYuP+DGQ8YWP+DwTcEg0kQDBQYYAAABD4w07rVNRYA\
+    AAAASUVORK5CYII=') 8px 7px no-repeat;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
 .calendar {
   background: white;
   font-size: 14px;
