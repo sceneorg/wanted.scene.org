@@ -775,23 +775,21 @@ footer div#supporter {
   top: 10px;
   right: 0px;
 }
-footer div#supporter a#sceneorg {
+footer div#supporter a {
   vertical-align: middle;
   display: inline-block;
-  width: 96px;
-  height: 58px;
-  text-ident: 100px;
+  text-indent: 100px;
   overflow: hidden;
   color: transparent;
+  margin: 5px;
+}
+footer div#supporter a#sceneorg {
+  width: 96px;
+  height: 58px;
   background: url("sceneorg.png") no-repeat;
 }
 footer div#supporter a#tum {
-  vertical-align: middle;
-  display: inline-block;
   width: 105px;
   height: 58px;
-  text-ident: 100px;
-  overflow: hidden;
-  color: transparent;
   background: url("tastatur-und-maus.png") no-repeat;
 }
