@@ -575,10 +575,12 @@ section#content input[type="submit"]#deletePost {
     //////////////////////////////////////////9Or7hAAAAAD3RSTlMAMxF37t0iVYjMu2aq\
     RJnKnvz3AAAAX0lEQVR4XmMAAiYFBghgdYMy7H9BGEz+/y+AGRz//08AM/K/i3wHM85/5P8KYjD+\
     /83/3wDI4Pr/Wf6/E5BR/x8IfgAZ80Ei/xUYuP+DGQ8YWP+DwTcEg0kQDBQYYAAABD4w07rVNRYA\
-    AAAASUVORK5CYII=') 8px 7px no-repeat;
+    AAAASUVORK5CYII=') 8px 4px no-repeat;
   position: absolute;
   bottom: 30px;
   right: 30px;
+  font-size: 12px;
+  width: 140px;
 }
 
 .calendar {
