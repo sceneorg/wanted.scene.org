@@ -823,13 +823,14 @@ footer div#supporter a#tum {
     display: block;
     top: auto;
     margin: 10px;
+    font-size: 32px;
   }
   header h1 a {
     padding: 0px;
   }
   header form#search input
   {
-    width: calc(100% - 24px);
+    width: calc(100% - 32px);
   }
   header small
   {

@@ -35,7 +35,7 @@ if ($_GET["intent"] == "demand") $sql->AddWhere( "intent='demand'" );
 $sql->SetLimit(10);
 $posts = SQLLib::SelectRows( $sql->GetQuery() );
 ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:wanted="<?=ROOT_URL?>docs/rss-namespace/">
 	<channel>
 		<title>Wanted!</title>
 		<link><?=ROOT_URL?></link>
@@ -48,6 +48,8 @@ $posts = SQLLib::SelectRows( $sql->GetQuery() );
 			<guid isPermaLink="false">wanted<?=$post->id?></guid>
 			<pubDate><?=date("r",strtotime($post->postDate))?></pubDate>
 			<description><![CDATA[<?=_html(shortify($post->contents,500))?>]]></description>
+			<wanted:intent><?=_html($post->intent)?></wanted:intent>
+			<wanted:area><?=_html($post->area)?></wanted:area>
 		</item>
 <? } ?>
   </channel>
