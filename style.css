@@ -865,4 +865,8 @@ footer div#supporter a#tum {
   .box h2 {
     padding: 10px;
   }
+  section#content div article .body
+  {
+    word-wrap: break-word;
+  }
 }
