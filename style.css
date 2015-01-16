@@ -352,6 +352,8 @@ section#content div article .body {
   padding: 20px;
   border-top: 1px solid #DBDBDB;
   line-height: 20px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 section#content div article#about h2 {
   padding: 30px;
@@ -864,9 +866,5 @@ footer div#supporter a#tum {
   }
   .box h2 {
     padding: 10px;
-  }
-  section#content div article .body
-  {
-    word-wrap: break-word;
   }
 }
