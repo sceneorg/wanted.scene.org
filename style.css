@@ -351,6 +351,7 @@ section#content div article .body {
   font-size: 14px;
   padding: 20px;
   border-top: 1px solid #DBDBDB;
+  line-height: 20px;
 }
 section#content div article#about h2 {
   padding: 30px;
