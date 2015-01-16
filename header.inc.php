@@ -8,6 +8,7 @@
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?=ROOT_URL?>rss/"/>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
   <script type="text/javascript" src="<?=ROOT_URL?>calendarview.js"></script>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
 <script type="text/javascript">
 <!--
 document.observe("dom:loaded",function(){
