@@ -353,7 +353,6 @@ section#content div article .body {
   border-top: 1px solid #DBDBDB;
   line-height: 20px;
   word-wrap: break-word;
-  word-break: break-all;
 }
 section#content div article#about h2 {
   padding: 30px;
