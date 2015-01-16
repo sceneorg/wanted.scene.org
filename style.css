@@ -794,3 +794,75 @@ footer div#supporter a#tum {
   height: 58px;
   background: url("tastatur-und-maus.png") no-repeat;
 }
+
+@media screen and (max-width: 1024px)
+{
+  header,
+  section#content > div,
+  section#bumper > div,
+  footer > div
+  {
+    width: 100%;
+  }
+  section#content div#news, section#content div#sidebar {
+    display: block;
+  }
+}
+@media screen and (max-width: 800px)
+{
+  header
+  {
+    height: auto;
+    background: none;
+  }
+  header form#search,
+  header h1
+  {
+    position: relative;
+    display: block;
+    top: auto;
+    margin: 10px;
+  }
+  header h1 a {
+    padding: 0px;
+  }
+  header form#search input
+  {
+    width: calc(100% - 24px);
+  }
+  header small
+  {
+    display: none;
+  }
+  section#bumper 
+  {
+    height: auto;
+  }
+  section#bumper > div article
+  {
+    display: block;
+    height: auto;
+    width: 100%;
+    padding: 5px;
+  }
+  section#bumper > div article h2,
+  section#bumper > div article p
+  {
+    display: none;
+  }
+  section#bumper > div article a
+  {
+    margin: 0px auto;
+  }
+  body#frontpage section#content > div, body#showposts section#content > div
+  {
+    border-spacing: 0px;
+  }
+  section#content #sidebar
+  {
+    width: 100%;
+  }
+  .box h2 {
+    padding: 10px;
+  }
+}
