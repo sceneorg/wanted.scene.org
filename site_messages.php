@@ -38,7 +38,7 @@ if ($_POST)
       $msg .= $currentUser->displayName." has responded to your message on Wanted!\n";
       $msg .= "\n";
       $msg .= "You can read their message and respond here:\n";
-      $msg .= ROOT_URL."message/?recipient=".$currentUser->sceneID."#c".$id."\n";
+      $msg .= ROOT_URL."messages/?recipient=".$currentUser->sceneID."#c".$id."\n";
       $msg .= "\n";
       $msg .= "Hugs,\n";
       $msg .= "the Wanted! mailing robot\n";
