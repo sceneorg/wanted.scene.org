@@ -3,6 +3,11 @@ include_once("sqllib.inc.php");
 include_once("functions.inc.php");
 include_once("sceneid3lib-php/sceneid3.inc.php");
 
+$lifetime = 60 * 60 * 24 * 365;
+@ini_set('session.cookie_lifetime', $lifetime);
+
+$url = parse_url(ROOT_URL);
+session_set_cookie_params($lifetime, $url["path"], $url["domain"]);
 @session_start();
 
 $sceneID = null;
