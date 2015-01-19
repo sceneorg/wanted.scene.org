@@ -30,7 +30,7 @@ include_once("header.inc.php");
 <section id="content">
   <div>
     <article id='singlepost'>
-      <div class='itemHeader area_<?=$post->area?>''>
+      <div class='itemHeader area_<?=$post->area?> intent_<?=$post->intent?>'>
 <?
 if ($post->userID == $_SESSION["userID"] || ($currentUser && $currentUser->isAdmin))
 {
