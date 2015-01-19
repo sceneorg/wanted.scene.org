@@ -372,6 +372,7 @@ section#content div article .itemHeader.area_other {
   position: relative;
   top: 0;
   right: 0;
+  padding: 0 10px;
 }
 section#content div article .itemHeader h3 {
   font-size: 18px;
