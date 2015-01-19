@@ -246,6 +246,7 @@ body#about section#content div article {
 section#content div article .itemHeader {
   padding: 20px;
   padding-left: 80px;
+  position: relative;
 }
 section#content div article .itemHeader a {
   text-decoration: none;
@@ -340,6 +341,33 @@ section#content div article .itemHeader.area_other {
     AOCvNrw3BQQP89dFnctZmod+mSMiX9LkcCzqfEXFVb5HIprPhwqt4u6YxUTq3NfkuSR3NtyIoj/r\
     y8D4bfvLAdoZsfy/30h9H3cOCN/lOHU1lLSPN/JktP0CghAafAI2xzIAAAAASUVORK5CYII=') 20px 20px no-repeat;
 }
+.itemHeader.intent_supply:after {
+  background: green;
+  border-radius: 10px;
+  color: white;
+  content: "Offers help";
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  position: absolute;
+  right: 20px;
+  text-transform: uppercase;
+  top: 20px;
+}
+.itemHeader.intent_demand:after {
+  background: orange;
+  border-radius: 10px;
+  color: black;
+  content: "Need help";
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  position: absolute;
+  right: 20px;
+  text-transform: uppercase;
+  top: 20px;
+}
+
 section#content div article .itemHeader h3 {
   font-size: 18px;
 }
