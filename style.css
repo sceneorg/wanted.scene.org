@@ -239,7 +239,7 @@ section#content div article, .box {
 }
 body#addpost section#content div article,
 body#editpost section#content div article,
-body#singlepost section#content div article,
+body#viewpost section#content div article,
 body#about section#content div article {
   width: 100%;
 }
@@ -367,7 +367,12 @@ section#content div article .itemHeader.area_other {
   text-transform: uppercase;
   top: 20px;
 }
-
+#viewpost .itemHeader.intent_supply:after,
+#viewpost .itemHeader.intent_demand:after {
+  position: relative;
+  top: 0;
+  right: 0;
+}
 section#content div article .itemHeader h3 {
   font-size: 18px;
 }

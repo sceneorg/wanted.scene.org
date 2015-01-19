@@ -1,6 +1,6 @@
 <?
 global $BODY_ID;
-$BODY_ID = "singlepost";
+$BODY_ID = "viewpost";
 include_once("bootstrap.inc.php");
 
 $post = SQLLib::SelectRow(sprintf_esc("SELECT * FROM posts LEFT JOIN users ON users.sceneID = posts.userID WHERE id = %d",$_GET["id"]));
