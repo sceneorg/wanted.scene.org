@@ -15,6 +15,8 @@ $rewriter->addRules(array(
   "^\/+profile\/?$" => "site_profile.php",
   "^\/+about\/?$" => "site_about.php",
 
+  "^\/+admin\/?$" => "site_admin.php",
+
   "^\/+docs\/rss\-namespace\/?$" => "site_docs_rssns.php",
 
   "^\/+rss\/?$" => "rss.php",

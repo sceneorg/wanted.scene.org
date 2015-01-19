@@ -35,7 +35,7 @@ foreach($posts as $post)
 {
 ?>
       <article>
-        <div class='itemHeader area_<?=$post->area?>'>
+        <div class='itemHeader area_<?=$post->area?> intent_<?=$post->intent?>'>
           <h3><a href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'><?=_html($post->title)?></a></h3>
           <span class="author">Posted by <?=_html($post->displayName)?> <?=sprintf("<time datetime='%s'>%s</time>",$post->postDate,dateDiffReadable(time(),$post->postDate))?></span>
         </div>
@@ -60,6 +60,9 @@ $unread = SQLLib::SelectRow( sprintf_esc("select count(*) as cnt from messages w
       <aside id="profile" class="box">
         <h2>Hi, <?=_html($currentUser->displayName)?>!</h2>
         <ul>
+<?if($currentUser->isAdmin){?>
+          <li><a href="<?=ROOT_URL?>admin/">Admin</a></li>
+<?}?>
           <li><a href="<?=ROOT_URL?>profile/">Your settings</a></li>
           <li><a href="<?=ROOT_URL?>show-posts/?mine=true">Your current posts</a></li>
           <li><a href="<?=ROOT_URL?>messages/">Your messages<?=($unread?sprintf(" - <span class='unread'>%d new!</span>",$unread):"")?></a></li>
