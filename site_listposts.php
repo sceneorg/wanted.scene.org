@@ -49,7 +49,7 @@ $total = SQLLib::SelectRow( "SELECT FOUND_ROWS() AS cnt" )->cnt;
 foreach($posts as $post)
 {
 ?>
-      <article>
+      <article class='postlist'>
         <div class='itemHeader area_<?=$post->area?> intent_<?=$post->intent?>'>
           <h3><a href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'><?=_html($post->title)?></a><?=($post->expiry && ($post->expiry < date("Y-m-d"))?" <span class='expired'>expired</span>":"")?></h3>
           <span class="author">Posted by <?=_html($post->displayName)?> <?=sprintf("<time datetime='%s'>%s</time>",$post->postDate,dateDiffReadable(time(),$post->postDate))?></span>

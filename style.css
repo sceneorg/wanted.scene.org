@@ -378,6 +378,9 @@ section#content div article .itemHeader.area_other {
 section#content div article .itemHeader h3 {
   font-size: 18px;
 }
+section#content div article.postlist .itemHeader h3 {
+  width: 465px;
+}
 section#content div article .itemHeader .author {
   font-size: 14px;
   color: #adadad;

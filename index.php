@@ -34,7 +34,7 @@ $posts = SQLLib::SelectRows("SELECT * FROM posts LEFT JOIN users ON users.sceneI
 foreach($posts as $post)
 {
 ?>
-      <article>
+      <article class='postlist'>
         <div class='itemHeader area_<?=$post->area?> intent_<?=$post->intent?>'>
           <h3><a href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'><?=_html($post->title)?></a></h3>
           <span class="author">Posted by <?=_html($post->displayName)?> <?=sprintf("<time datetime='%s'>%s</time>",$post->postDate,dateDiffReadable(time(),$post->postDate))?></span>
