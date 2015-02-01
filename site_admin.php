@@ -20,7 +20,8 @@ include_once("header.inc.php");
 
 <?
 $cntMessages = SQLLib::SelectRow("select count(*) as c from messages")->c;
-printf("<p><b>%d</b> messages so far</p>",$cntMessages);
+$cntUnique = SQLLib::SelectRow("SELECT count(*) as c from (select * from messages group by concat(if(userSender<userRecipient,userSender,userRecipient),':',if(userSender>userRecipient,userSender,userRecipient)) ) as m")->c;
+printf("<p><b>%d</b> messages so far, <b>%d</b> conversations</p>",$cntMessages,$cntUnique);
 ?>
 
     </article>
