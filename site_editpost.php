@@ -14,6 +14,11 @@ if (!$post || (($post->userID != $_SESSION["userID"]) && !$currentUser->isAdmin)
   header("Location: ".ROOT_URL."show-posts/");
   exit();
 }
+if ($post->closureReason)
+{
+  header("Location: ".ROOT_URL."post/".(int)$post->id."/".hashify($post->title) );
+  exit();
+}
 
 $prev = get_object_vars($post);
 $prev["expiry"] = $post->expiry != null ? "concrete" : "indefinite";
@@ -32,11 +37,16 @@ if ($_POST)
     }
     return true;
   }
-  if ($_POST["delete"])
+  if ($_POST["delete"] && $currentUser->isAdmin)
   {
     SQLLib::Query("update messages set relatedPost=null where relatedPost=".(int)$_GET["id"]);
     SQLLib::Query("delete from posts where id=".(int)$_GET["id"]);
     header("Location: ".ROOT_URL."show-posts/?mine=true#success" );
+  }
+  if ($_POST["close"])
+  {
+    header("Location: ".ROOT_URL."close-post/?id=".(int)$_GET["id"] );
+    exit();
   }
   if (validate())
   {
@@ -113,9 +123,12 @@ include_once("header.inc.php");
         </ul>
 
         <input type='submit' value='Apply changes'/>
+        <div id="removeButtons">
+          <input type='submit' name='close' id='closePost' value='Close post'/>
 <?if ($currentUser->isAdmin){?>
-        <input type='submit' name='delete' id='deletePost' value='Delete post!'/>
+          <input type='submit' name='delete' id='deletePost' value='Delete post!'/>
 <?}?>
+        </div>
       </form>
 
     </article>

@@ -370,6 +370,19 @@ section#content div article .itemHeader.area_other {
   text-transform: uppercase;
   top: 20px;
 }
+.itemHeader.closed:after {
+  background: black;
+  border-radius: 10px;
+  color: white;
+  content: "Closed";
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  position: absolute;
+  right: 20px;
+  text-transform: uppercase;
+  top: 20px;
+}
 #viewpost .itemHeader.intent_supply:after,
 #viewpost .itemHeader.intent_demand:after {
   position: relative;
@@ -383,6 +396,15 @@ section#content div article .itemHeader h3 {
 }
 section#content div article.postlist .itemHeader h3 {
   max-width: 465px;
+}
+section#content div article.postlist.closed, 
+section#content div article.postlist.closed h3 a,
+section#content div article.postlist.closed .author {
+  color: #ccc;
+}
+section#content div article.postlist.closed .itemHeader:after {
+  background: #ccc;
+  color: white;
 }
 section#content div article .itemHeader .author {
   font-size: 14px;
@@ -612,6 +634,16 @@ article.submitform form textarea {
 article.submitform form input[type=submit] {
   width: 250px;
 }
+section#content #removeButtons {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+section#content #removeButtons > input {
+  display: inline;
+  font-size: 12px;
+  width: 140px;
+}
 section#content input[type="submit"]#deletePost {
   background: red url('data:image/png;base64,\
     iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEX/////////////////////\
@@ -619,11 +651,6 @@ section#content input[type="submit"]#deletePost {
     RJnKnvz3AAAAX0lEQVR4XmMAAiYFBghgdYMy7H9BGEz+/y+AGRz//08AM/K/i3wHM85/5P8KYjD+\
     /83/3wDI4Pr/Wf6/E5BR/x8IfgAZ80Ei/xUYuP+DGQ8YWP+DwTcEg0kQDBQYYAAABD4w07rVNRYA\
     AAAASUVORK5CYII=') 8px 4px no-repeat;
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  font-size: 12px;
-  width: 140px;
 }
 
 .calendar {

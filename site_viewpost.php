@@ -32,7 +32,7 @@ include_once("header.inc.php");
     <article id='singlepost'>
       <div class='itemHeader area_<?=$post->area?> intent_<?=$post->intent?>'>
 <?
-if ($post->userID == $_SESSION["userID"] || ($currentUser && $currentUser->isAdmin))
+if ( (!$post->closureReason && $post->userID == $_SESSION["userID"]) || ($currentUser && $currentUser->isAdmin) )
 {
   printf("<a href='".ROOT_URL."edit-post/?id=%d' class='editlink'>Edit</a>",$post->id);
 }
@@ -65,14 +65,28 @@ if ($post->closureReason)
   switch($post->closureReason)
   {
     case "success": $reason = "This post was closed after being successful!"; $desc = $post->closureDescription; break;
+    case "other": 
+      {
+        if ($currentUser && $currentUser->isAdmin)
+        {
+          $reason = "This post was closed for this 'other' reason"; 
+          $desc = $post->closureDescription; 
+        }
+        else
+        {
+          $reason = "This post was closed";
+        }
+      } break;
     default: $reason = "This post was closed"; break;
   }
 ?>
     <div class="box">
       <h2><?=$reason?></h2>
+      <?if($desc){?>
       <div class='body'>
       <?=parse_post($desc)?>
       </div>
+      <?}?>
     </div>
 <?  
 }
