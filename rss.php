@@ -9,6 +9,8 @@ $sql = new SQLSelect();
 $sql->AddTable("posts");
 $sql->AddJoin("left","users","users.sceneID = posts.userID");
 $sql->AddOrder("postDate DESC");
+$sql->AddWhere("closureReason IS NULL");
+
 if ($_GET["q"])
 {
   $terms = split_search_terms($_GET["q"]);

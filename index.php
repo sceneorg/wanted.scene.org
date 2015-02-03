@@ -30,7 +30,7 @@ include_once("header.inc.php");
   <div>
     <div id='news'>
 <?
-$posts = SQLLib::SelectRows("SELECT * FROM posts LEFT JOIN users ON users.sceneID = posts.userID ORDER BY postDate DESC LIMIT 5");
+$posts = SQLLib::SelectRows("SELECT * FROM posts LEFT JOIN users ON users.sceneID = posts.userID WHERE closureReason is NULL ORDER BY postDate DESC LIMIT 5");
 foreach($posts as $post)
 {
 ?>
