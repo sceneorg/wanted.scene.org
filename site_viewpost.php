@@ -61,16 +61,17 @@ if ($post->userID == $_SESSION["userID"] || ($currentUser && $currentUser->isAdm
 if ($post->closureReason)
 {
   $reason = "";
+  $desc = "";
   switch($post->closureReason)
   {
-    case "success": $reason = "This post was closed after being successful!"; break;
+    case "success": $reason = "This post was closed after being successful!"; $desc = $post->closureDescription; break;
     default: $reason = "This post was closed"; break;
   }
 ?>
     <div class="box">
       <h2><?=$reason?></h2>
       <div class='body'>
-      <?=parse_post($post->closureDescription)?>
+      <?=parse_post($desc)?>
       </div>
     </div>
 <?  
