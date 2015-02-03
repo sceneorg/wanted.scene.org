@@ -113,7 +113,9 @@ include_once("header.inc.php");
         </ul>
 
         <input type='submit' value='Apply changes'/>
+<?if ($currentUser->isAdmin){?>
         <input type='submit' name='delete' id='deletePost' value='Delete post!'/>
+<?}?>
       </form>
 
     </article>
