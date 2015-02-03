@@ -237,6 +237,9 @@ section#content div article, .box {
   border-bottom: 1px solid #DBDBDB;
   font-size: 18px;
 }
+.box > .body {
+  padding: 30px;
+}
 body#addpost section#content div article,
 body#editpost section#content div article,
 body#viewpost section#content div article,

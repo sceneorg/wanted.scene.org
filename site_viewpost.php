@@ -58,10 +58,29 @@ if ($post->userID == $_SESSION["userID"] || ($currentUser && $currentUser->isAdm
       </div>
     </article>
 <?
-if ($_SESSION["userID"])
+if ($post->closureReason)
 {
-  if ($post->userID != $_SESSION["userID"])
+  $reason = "";
+  switch($post->closureReason)
   {
+    case "success": $reason = "This post was closed after being successful!"; break;
+    default: $reason = "This post was closed"; break;
+  }
+?>
+    <div class="box">
+      <h2><?=$reason?></h2>
+      <div class='body'>
+      <?=parse_post($post->closureDescription)?>
+      </div>
+    </div>
+<?  
+}
+else
+{
+  if ($_SESSION["userID"])
+  {
+    if ($post->userID != $_SESSION["userID"])
+    {
 ?>
     <div id='sendmessage' class="box">
       <h2>Interested? Get in touch with <?=_html($post->displayName)?>!</h2>
@@ -72,16 +91,17 @@ if ($_SESSION["userID"])
       </form>
     </div>
 <?
+    }
   }
-}
-else
-{
+  else
+  {
 ?>
     <div id='loginbox' class='box'>
       <h2>Interested? Log in to get in touch with <?=_html($post->displayName)?>!</h2>
       <a href="<?=ROOT_URL?>login/">Log in via SceneID!</a>
     </div>
 <?
+  }
 }
 ?>
   </div>
