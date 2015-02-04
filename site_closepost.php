@@ -31,11 +31,11 @@ if ($_POST)
   }
   if (validate())
   {
-    $post = array();
-    $post["closureReason"] = $_POST["closureReason"];
-    $post["closureDescription"] = $_POST["closureDescription"];
-    SQLLib::UpdateRow("posts",$post,"id=".(int)$_GET["id"]);
-    header("Location: ".ROOT_URL."post/".(int)$_GET["id"]."/".hashify($_POST["title"]) );
+    $a = array();
+    $a["closureReason"] = $_POST["closureReason"];
+    $a["closureDescription"] = $_POST["closureDescription"];
+    SQLLib::UpdateRow("posts",$a,"id=".(int)$_GET["id"]);
+    header("Location: ".ROOT_URL."post/".(int)$_GET["id"]."/".hashify($post->title) );
   }
 }
 
