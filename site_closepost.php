@@ -1,6 +1,6 @@
 <?
 global $BODY_ID;
-$BODY_ID = "editpost";
+$BODY_ID = "closepost";
 include_once("bootstrap.inc.php");
 
 if (!$currentUser)
