@@ -27,6 +27,12 @@ if ($_POST)
   $prev = $_POST;
   function validate()
   {
+    global $error;
+    if (!$_POST["closureReason"])
+    {
+      $error = "You must select a reason!";
+      return false;
+    }
     return true;
   }
   if (validate())
