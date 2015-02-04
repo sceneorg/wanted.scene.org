@@ -31,6 +31,7 @@ if ($_GET["area"])
   $sql->AddWhere("area IN (".implode(",",$cond).")");
 }
 if ($_GET["expired"] != "on") $sql->AddWhere( "expiry IS NULL OR expiry > NOW()" );
+if ($_GET["closed"] != "on") $sql->AddWhere( "closureReason IS NULL" );
 
 if ($_GET["intent"] == "supply") $sql->AddWhere( "intent='supply'" );
 else
@@ -102,6 +103,9 @@ if ($total > count($posts))
           </ul>
           <div>
             <input type='checkbox' id='expired' name='expired'<?=($_GET["expired"]!=""?" checked='checked'":"")?>/> <label for='expired'>Include expired posts</label></li>
+          </div>
+          <div>
+            <input type='checkbox' id='closed' name='closed'<?=($_GET["closed"]!=""?" checked='checked'":"")?>/> <label for='closed'>Include closed posts</label></li>
           </div>
           <? if ($_SESSION["userID"]) { ?>
           <div>
