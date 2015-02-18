@@ -43,8 +43,8 @@ foreach($posts as $post)
           <?
           $c = $post->contents;
           $c = shortify($c,500);
-          $c = wordwrap($c,75,"\n",true);
-          echo _html($c);
+          $c = parse_post($c);
+          echo $c;
           ?>
           <a class='readmore' href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'>Read more...</a>
         </div>

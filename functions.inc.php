@@ -39,7 +39,10 @@ function hashify($s) {
 
 function parse_post($s) {
   $s = _html($s);
-  $s = preg_replace("/([a-z]+:\/\/\S+)/","<a href='$1' target='_blank'>$1</a>",$s);
+  $s = preg_replace_callback("/([a-z]+:\/\/\S+)/",function($m){
+    $url = parse_url($m[1]);
+    return "<a href='".$m[1]."' target='_blank'>".$url["host"]."</a>";
+  },$s);
   $s = nl2br($s);
   return $s;
 }

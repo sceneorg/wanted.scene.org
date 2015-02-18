@@ -773,6 +773,7 @@ ul#conversation li span.author a {
   font-weight: bold;
 }
 article#singlepost .body a[target=_blank],
+article.postlist .body a[target=_blank],
 ul#conversation a[target=_blank] {
   background: url('data:image/gif;base64,\
     R0lGODlhCwALALMAANjY2OLi4tnZ2e7u7sDAwOPj4+vr68zMzP///1FMTAAAAAAAAAAAAAAAAAAA\
