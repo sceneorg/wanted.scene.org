@@ -988,4 +988,8 @@ footer div#supporter a#tum {
   section#content div article.post .body {
     padding: 5px;
   }
+  section#content #removeButtons {
+    position: relative;
+    bottom: auto;
+  }
 }
