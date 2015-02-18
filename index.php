@@ -40,7 +40,12 @@ foreach($posts as $post)
           <span class="author">Posted by <?=_html($post->displayName)?> <?=sprintf("<time datetime='%s'>%s</time>",$post->postDate,dateDiffReadable(time(),$post->postDate))?></span>
         </div>
         <div class='body'>
-          <?=_html(shortify($post->contents,500))?>
+          <?
+          $c = $post->contents;
+          $c = shortify($c,500);
+          $c = wordwrap($c);
+          echo _html($c);
+          ?>
           <a class='readmore' href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'>Read more...</a>
         </div>
       </article>
