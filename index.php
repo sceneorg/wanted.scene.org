@@ -8,13 +8,13 @@ include_once("header.inc.php");
   <div>
     <article id="demand">
       <h2>We want</h2>
-<? $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='demand' AND (expiry IS NULL OR expiry > NOW())")->c; ?>
+<? $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='demand' AND closureReason is NULL AND (expiry IS NULL OR expiry > NOW())")->c; ?>
       <p>Currently, <?=$count?> people are looking for somebody to help them with their projects!</p>
       <a href="<?=ROOT_URL?>show-posts/?intent=demand">I can help!</a>
     </article>
     <article id="supply">
       <h2>We offer</h2>
-<? $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='supply' AND (expiry IS NULL OR expiry > NOW())")->c; ?>
+<? $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='supply' AND closureReason is NULL AND (expiry IS NULL OR expiry > NOW())")->c; ?>
       <p>At the same time, <?=$count?> people are offering their skills to help out others!</p>
       <a href="<?=ROOT_URL?>show-posts/?intent=supply">I need help!</a>
     </article>
