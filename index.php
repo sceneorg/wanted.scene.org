@@ -85,7 +85,7 @@ $unread = SQLLib::SelectRow( sprintf_esc("select count(*) as cnt from messages w
         <h2>Categories</h2>
         <ul>
 <?
-$posts = SQLLib::SelectRows("SELECT area, count(*) AS c FROM posts WHERE (expiry IS NULL OR expiry > NOW()) GROUP BY area ORDER BY area");
+$posts = SQLLib::SelectRows("SELECT area, count(*) AS c FROM posts WHERE (expiry IS NULL OR expiry > NOW()) AND closureReason is NULL GROUP BY area ORDER BY area");
 foreach($posts as $post)
 {
   $names = array(
