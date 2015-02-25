@@ -878,6 +878,14 @@ footer div#supporter a#tum {
     display: block;
   }
 }
+
+#admin ul {
+  padding-left: 20px;
+}
+#admin h3 {
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 800px)
 {
   header
