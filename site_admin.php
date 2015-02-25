@@ -26,9 +26,9 @@ $cntUnique = SQLLib::SelectRow("SELECT count(*) as c from (select * from message
 printf("<p><b>%d</b> messages so far, <b>%d</b> conversations</p>",$cntMessages,$cntUnique);
 
 echo "<ul>";
-$data = SQLLib::SelectRows("select count(*) as c, posts.id, posts.title from messages left join posts on posts.id = messages.relatedPost where posts.title is not null group by relatedPost order by c desc");
+$data = SQLLib::SelectRows("select count(*) as c, posts.id, posts.title from messages left join posts on posts.id = messages.relatedPost where posts.title is not null group by relatedPost order by postDate desc limit 10");
 foreach($data as $c)
-  printf("<li><a href='#'>%s</a>: <b>%d</b></li>",$c->title,$c->c);
+  printf("<li><a href='%s'>%s</a>: <b>%d</b></li>",ROOT_URL."post/".$c->id."/".hashify($c->title),_html($c->title),$c->c);
 echo "</ul>";
 
 echo "<h3>Closed posts</h3>";
