@@ -25,10 +25,24 @@ $cntMessages = SQLLib::SelectRow("select count(*) as c from messages")->c;
 $cntUnique = SQLLib::SelectRow("SELECT count(*) as c from (select * from messages group by concat(if(userSender<userRecipient,userSender,userRecipient),':',if(userSender>userRecipient,userSender,userRecipient)) ) as m")->c;
 printf("<p><b>%d</b> messages so far, <b>%d</b> conversations</p>",$cntMessages,$cntUnique);
 
+echo "<h3>Recent messages through a post</h3>";
 echo "<ul>";
-$data = SQLLib::SelectRows("select count(*) as c, posts.id, posts.title from messages left join posts on posts.id = messages.relatedPost where posts.title is not null group by relatedPost order by posts.postDate desc limit 10");
+$s = new SQLSelect();
+$s->AddField("posts.*");
+$s->AddField("messages.postDate as messageDate");
+$s->AddField("sender.displayName as senderName");
+$s->AddField("recipient.displayName as recipientName");
+$s->AddTable("messages");
+$s->AddWhere("relatedPost is not null");
+$s->AddJoin("left","posts","posts.id = messages.relatedPost");
+$s->AddJoin("left","users as sender","sender.sceneID = messages.userSender");
+$s->AddJoin("left","users as recipient","recipient.sceneID = messages.userRecipient");
+$s->AddOrder("postDate desc");
+$s->SetLimit( 10 );
+
+$data = SQLLib::SelectRows( $s->GetQuery() );
 foreach($data as $c)
-  printf("<li><a href='%s'>%s</a>: <b>%d</b></li>",ROOT_URL."post/".$c->id."/".hashify($c->title),_html($c->title),$c->c);
+  printf("<li>%s - <a href='%s'>%s</a></li>",$c->messageDate,ROOT_URL."post/".$c->id."/".hashify($c->title),_html($c->title));
 echo "</ul>";
 
 echo "<h3>Closed posts</h3>";
