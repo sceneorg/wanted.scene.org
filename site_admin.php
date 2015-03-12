@@ -37,7 +37,7 @@ $s->AddWhere("relatedPost is not null");
 $s->AddJoin("left","posts","posts.id = messages.relatedPost");
 $s->AddJoin("left","users as sender","sender.sceneID = messages.userSender");
 $s->AddJoin("left","users as recipient","recipient.sceneID = messages.userRecipient");
-$s->AddOrder("postDate desc");
+$s->AddOrder("messages.postDate desc");
 $s->SetLimit( 10 );
 
 $data = SQLLib::SelectRows( $s->GetQuery() );
