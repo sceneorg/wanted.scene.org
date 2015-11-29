@@ -886,6 +886,16 @@ footer div#supporter a#tum {
   margin-top: 20px;
 }
 
+section#content div article.showcaseitem .body {
+  border-top: 0px;
+}
+section#content div article.showcaseitem .itemFooter {
+  border-top: 1px solid #DBDBDB;
+  padding: 5px 10px;
+  font-size: 70%;
+  text-align: right;
+}
+
 @media screen and (max-width: 800px)
 {
   header

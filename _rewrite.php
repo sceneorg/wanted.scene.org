@@ -14,6 +14,7 @@ $rewriter->addRules(array(
   "^\/+close-post\/?$" => "site_closepost.php",
   "^\/+post\/([0-9]+).*$" => "site_viewpost.php?id=$1",
   "^\/+profile\/?$" => "site_profile.php",
+  "^\/+showcase\/?$" => "site_showcase.php",
   "^\/+about\/?$" => "site_about.php",
 
   "^\/+admin\/?$" => "site_admin.php",
