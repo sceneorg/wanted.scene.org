@@ -50,7 +50,7 @@ echo "<ul>";
 $closure = SQLLib::SelectRows("SELECT closureReason, count(*) as c from posts group by closureReason");
 foreach($closure as $c)
   if ($c->closureReason)
-    printf("<li>%s: <b>%d</b></li>",$c->closureReason,$c->c);
+    printf("<li><a href='".ROOT_URL."admin/list/?reason=%s'>%s</a>: <b>%d</b></li>",$c->closureReason,$c->closureReason,$c->c);
 echo "</ul>";
 
 ?>

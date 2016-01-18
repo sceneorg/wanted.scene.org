@@ -17,6 +17,7 @@ $rewriter->addRules(array(
   "^\/+showcase\/?$" => "site_showcase.php",
   "^\/+about\/?$" => "site_about.php",
 
+  "^\/+admin\/list\/?$" => "site_admin_list.php",
   "^\/+admin\/?$" => "site_admin.php",
 
   "^\/+docs\/rss\-namespace\/?$" => "site_docs_rssns.php",

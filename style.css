@@ -190,6 +190,13 @@ section#content {
   margin: 0;
   border-top: 2px solid #D9D9D9;
 }
+section#content dt {
+  font-weight: bold;
+}
+section#content dd {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
 section#content input[type=submit] {
   display: block;
   border: 0px;
@@ -884,6 +891,10 @@ footer div#supporter a#tum {
 }
 #admin h3 {
   margin-top: 20px;
+}
+section#content #admin-showcase input {
+  margin-top: 5px;
+  font-size: 75%;
 }
 
 section#content div article.showcaseitem .body {
