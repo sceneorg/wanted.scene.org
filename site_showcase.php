@@ -13,9 +13,12 @@ include_once("header.inc.php");
     </div>
 <?
 $sql = new SQLSelect();
+$sql->AddField("posts.*");
+$sql->AddField("users.displayName");
 $sql->AddTable("posts");
 $sql->AddOrder("postDate DESC");
 $sql->AddWhere("showcase = 1");
+$sql->AddJoin("LEFT","users","users.sceneID = posts.userID");
 $sql->SetLimit(10);
 $sql = $sql->GetQuery();
 //$sql = preg_replace("/^SELECT/i","SELECT SQL_CALC_FOUND_ROWS",$sql);
@@ -32,7 +35,7 @@ foreach($posts as $post)
           ?>
         </div>
         <div class='itemFooter'>
-          <span class="author">Original post: <a href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'><?=_html($post->title)?></a><?=($post->expiry && ($post->expiry < date("Y-m-d"))?" <span class='expired'>expired</span>":"")?></span>
+          <span class="author">Original post: <a href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'><?=_html($post->title)?></a> by <?=$post->displayName?></span>
         </div>
       </article>
 <?
