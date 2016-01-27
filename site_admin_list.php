@@ -34,7 +34,7 @@ $posts = SQLLib::SelectRows(sprintf_esc("SELECT * from posts WHERE closureReason
 foreach($posts as $p)
 {
   printf("<dt>%s</dt>\n",_html($p->title));
-  printf("<dd>%s\n",_html($p->closureDescription));
+  printf("<dd class='%s'>%s\n",$p->showcase?"showcased":"",_html($p->closureDescription));
   if ($p->showcase)
   {
     printf("<form method='post'><input type='hidden' name='showcaseRemove' value='%d'/><input type='submit' value='Remove from showcase'/></form>",$p->id);

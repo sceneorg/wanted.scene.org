@@ -195,7 +195,7 @@ section#content dt {
 }
 section#content dd {
   margin-left: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 section#content input[type=submit] {
   display: block;
@@ -898,6 +898,12 @@ footer div#supporter a#tum {
 section#content #admin-showcase input {
   margin-top: 5px;
   font-size: 75%;
+}
+section#content #admin-showcase dd:not(.showcased) {
+  color: #ccc;
+}
+section#content #admin-showcase dd:not(.showcased) input {
+  background: #888;
 }
 
 section#content div article.showcaseitem .body {
