@@ -7,6 +7,10 @@ include_once("header.inc.php");
 
 <section id="content">
   <div>
+    <div class='box'>
+      <h2>Testimonials</h2>
+      <p class='body'>Here is a selection of projects where the authors found each other with the help of Wanted. Want to request or offer help yourself? <a href='<?=ROOT_URL?>add-post'>Click here!</a></p>
+    </div>
 <?
 $sql = new SQLSelect();
 $sql->AddTable("posts");
