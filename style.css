@@ -466,6 +466,9 @@ article .expiry.done {
 section#content #sidebar {
   width: 220px;
 }
+section#content aside > p {
+  margin: 30px;
+}
 section#content aside ul {
   list-style: none;
   padding: 30px;

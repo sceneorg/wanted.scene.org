@@ -102,6 +102,10 @@ foreach($posts as $post)
         </ul>
 
       </aside>
+      <aside class="box">
+        <h2>Showcase</h2>
+        <p>Want to see some testimonials on projects that turned to fruition because of Wanted? <a href="<?=ROOT_URL?>showcase/">Click here!</a></p>
+      </aside>
     </div>
   </div>
 </section>
