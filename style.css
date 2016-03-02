@@ -900,10 +900,12 @@ section#content #admin-showcase input {
   font-size: 75%;
 }
 section#content #admin-showcase dd:not(.showcased) {
-  color: #ccc;
+  border-left: 4px solid red;
+  padding-left: 5px;
 }
-section#content #admin-showcase dd:not(.showcased) input {
-  background: #888;
+section#content #admin-showcase dd.showcased {
+  border-left: 4px solid #0c0;
+  padding-left: 5px;
 }
 
 section#content div article.showcaseitem .body {
