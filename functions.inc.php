@@ -73,6 +73,8 @@ function dateDiffReadable( $a, $b )
   if ($dif < 60) return "a few moments ago"; $dif /= 60;
   if ($dif < 60) return (int)$dif." minutes ago"; $dif /= 60;
   if ($dif < 24) return (int)$dif." hours ago"; $dif /= 24;
-  return (int)$dif." days ago";
+  if ($dif < 30) return (int)$dif." days ago"; $dif /= 30;
+  if ($dif < 12) return (int)$dif." months ago"; $dif /= 12;
+  return (int)$dif." years ago";
 }
 ?>
