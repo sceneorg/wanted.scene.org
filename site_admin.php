@@ -25,6 +25,51 @@ $cntMessages = SQLLib::SelectRow("select count(*) as c from messages")->c;
 $cntUnique = SQLLib::SelectRow("SELECT count(*) as c from (select * from messages group by concat(if(userSender<userRecipient,userSender,userRecipient),':',if(userSender>userRecipient,userSender,userRecipient)) ) as m")->c;
 printf("<p><b>%d</b> messages so far, <b>%d</b> conversations</p>",$cntMessages,$cntUnique);
 
+?>
+  <div id="downloadChart"></div>
+  <script type="text/javascript" src="//www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    function drawChart() 
+    {
+      google.load('visualization', '1', {
+        packages: ['corechart'],
+        callback: function(){
+
+          // Create and populate the data table.
+          var data = new google.visualization.DataTable();
+          data.addColumn('date', 'Date');
+          data.addColumn('number', 'Message count');
+<?
+$msgCount = SQLLib::SelectRows("SELECT DATE_FORMAT(postDate,'%Y-%m-%d') as d, count(*) as c from messages where DATEDIFF(now(),postDate)<30 group by d order by d");
+foreach($msgCount as $m)
+{
+?>          
+          data.addRow([new Date("<?=$m->d?>"), <?=$m->c?>]);
+<?
+}
+?>          
+      
+          // Create and draw the visualization.
+          new google.visualization.LineChart(document.getElementById('downloadChart')).
+            draw(data, {
+              width: 250,
+              height: 125,
+              curveType: "function",
+              backgroundColor: "transparent",
+              vAxis: { textPosition: 'in', minValue: 0, viewWindow: { min: 0 }, format: 'short' },
+              hAxis: { textPosition: 'none', viewWindowMode: 'maximized' },
+              legend: { position: 'none' },
+              chartArea: { top: 40, left: 0, width:"100%", height:"100%" },
+              title: 'Messages in the last 30 days',
+              series: { 0: { color:'#000000' } }
+            });
+        }
+      });
+    }
+    google.setOnLoadCallback(drawChart);
+  </script>  
+<?
+
 echo "<h3>Recent messages through a post</h3>";
 echo "<ul>";
 $s = new SQLSelect();
