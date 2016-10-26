@@ -40,11 +40,13 @@ printf("<p><b>%d</b> messages so far, <b>%d</b> conversations</p>",$cntMessages,
           data.addColumn('date', 'Date');
           data.addColumn('number', 'Message count');
 <?
-$msgCount = SQLLib::SelectRows("SELECT DATE_FORMAT(postDate,'%Y-%m-%d') as d, count(*) as c from messages where DATEDIFF(now(),postDate)<30 group by d order by d");
-foreach($msgCount as $m)
+$_msgCount = SQLLib::SelectRows("SELECT DATE_FORMAT(postDate,'%Y-%m-%d') as d, count(*) as c from messages where DATEDIFF(now(),postDate)<30 group by d order by d");
+$msgCount = array();
+for ($x=0,$t=time(); $x<30; $x++,$t-=60*60*24) $msgCount[date("Y-m-d",$t)] = 0;
+foreach($_msgCount as $m) $msgCount[$m->d] = $m->c;
+foreach($msgCount as $d=>$c)
 {
-?>          
-          data.addRow([new Date("<?=$m->d?>"), <?=$m->c?>]);
+?>          data.addRow([new Date("<?=$d?>"), <?=$c?>]);
 <?
 }
 ?>          
