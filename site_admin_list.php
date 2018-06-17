@@ -33,7 +33,7 @@ include_once("header.inc.php");
 $posts = SQLLib::SelectRows(sprintf_esc("SELECT * from posts WHERE closureReason = '%s'",$_GET["reason"]));
 foreach($posts as $p)
 {
-  printf("<dt>%s</dt>\n",_html($p->title));
+  printf("<dt>%s <small>(<a href='%spost/%d/%s'>link</a>)</small></dt>\n",_html($p->title),ROOT_URL,$p->id,hashify($p->title));
   printf("<dd class='%s'>%s\n",$p->showcase?"showcased":"",_html($p->closureDescription));
   if ($p->showcase)
   {
