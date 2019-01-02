@@ -22,6 +22,16 @@ if (!$SceneIDuser["success"] || !$SceneIDuser["user"]["id"])
 	exit("not auth");
 }
 
+$pouetUserData = @file_get_contents("http://api.pouet.net/v1/user/?id=".(int)$SceneIDuser["user"]["id"]);
+if($pouetUserData)
+{
+  $pouetUser = json_decode($pouetUserData,true);
+  if($pouetUser["user"]["level"] == "banned")
+  {
+    die("no");
+  } 
+}
+
 $user = array();
 $user["sceneID"] = (int)$SceneIDuser["user"]["id"];
 $user["displayName"] = $SceneIDuser["user"]["display_name"];
