@@ -8,8 +8,10 @@ echo "<"."?xml version=\"1.0\" encoding=\"UTF-8\"?".">\n";
 $sql = new SQLSelect();
 $sql->AddTable("posts");
 $sql->AddJoin("left","users","users.sceneID = posts.userID");
-if ($_GET["random"])
+if ($_GET["random"]=="full")
   $sql->AddOrder("RAND()");
+else if ($_GET["random"]=="weighted")
+  $sql->AddOrder("IF(DATEDIFF(NOW(),postDate)<30,postDate,RAND()) DESC");
 else
   $sql->AddOrder("postDate DESC");
 $sql->AddWhere("closureReason IS NULL");
