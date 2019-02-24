@@ -40,9 +40,10 @@ printf("<p><b>%d</b> messages so far, <b>%d</b> conversations</p>",$cntMessages,
           data.addColumn('date', 'Date');
           data.addColumn('number', 'Message count');
 <?
-$_msgCount = SQLLib::SelectRows("SELECT DATE_FORMAT(postDate,'%Y-%m-%d') as d, count(*) as c from messages where DATEDIFF(now(),postDate)<30 group by d order by d");
+$days = 90;
+$_msgCount = SQLLib::SelectRows("SELECT DATE_FORMAT(postDate,'%Y-%m-%d') as d, count(*) as c from messages where DATEDIFF(now(),postDate) < ".$days." group by d order by d");
 $msgCount = array();
-for ($x=0,$t=time(); $x<30; $x++,$t-=60*60*24) $msgCount[date("Y-m-d",$t)] = 0;
+for ($x=0,$t=time(); $x<$days; $x++,$t-=60*60*24) $msgCount[date("Y-m-d",$t)] = 0;
 foreach($_msgCount as $m) $msgCount[$m->d] = $m->c;
 foreach($msgCount as $d=>$c)
 {
@@ -52,17 +53,18 @@ foreach($msgCount as $d=>$c)
 ?>          
       
           // Create and draw the visualization.
-          new google.visualization.LineChart(document.getElementById('downloadChart')).
+          var parent = document.getElementById('downloadChart');
+          new google.visualization.LineChart(parent).
             draw(data, {
-              width: 250,
+              width: parent.width,
               height: 125,
               curveType: "function",
               backgroundColor: "transparent",
               vAxis: { textPosition: 'in', minValue: 0, viewWindow: { min: 0 }, format: 'short' },
-              hAxis: { textPosition: 'none', viewWindowMode: 'maximized' },
+              hAxis: { textPosition: 'in', viewWindowMode: 'maximized' },
               legend: { position: 'none' },
               chartArea: { top: 40, left: 0, width:"100%", height:"100%" },
-              title: 'Messages in the last 30 days',
+              title: 'Messages in the last <?=$days?> days',
               series: { 0: { color:'#000000' } }
             });
         }
