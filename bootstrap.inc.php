@@ -1,4 +1,5 @@
 <?
+include_once("credentials.inc.php");
 include_once("sqllib.inc.php");
 include_once("functions.inc.php");
 include_once("sceneid3lib-php/sceneid3.inc.php");
