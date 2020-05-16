@@ -1034,3 +1034,80 @@ section#content div article.showcaseitem .itemFooter {
     bottom: auto;
   }
 }
+
+@media (prefers-color-scheme: dark) 
+{
+  body {
+    background: black;
+    color: #d7d7d7;
+  }
+  
+  a {
+    color: #ca1b1b;
+  }
+  
+  header h1 a {
+    color: #e4e4e4;
+  }
+  
+  header form#search input {
+    color: black;
+  }
+  
+  ul#conversationList li a {
+    color: #f2f2f2;
+    border-bottom: 1px solid #2F2F2F;
+  }
+
+  article.submitform h2 {
+    border-bottom: 1px solid #303030;
+  }
+  
+  article a.readmore {
+    color: #ca1b1b;
+  }  
+    
+  section#content {
+    background: #1A1A1A;
+    border-top: 2px solid #303030;
+  }
+  
+  section#content div article, .box {
+    background: #202020;
+    border: 1px solid #303030;
+    box-shadow: 2px 2px 2px #303030;
+  }
+  
+  section#content aside#categories li span {
+    background: #ca1b1b;
+  }
+  
+  section#content div article .body {
+    border-top: 1px solid #303030;
+  }
+  
+  section#content div article.showcaseitem .itemFooter {
+    border-top: 1px solid #303030;
+  }
+  
+  .box h2 {
+    border-bottom: 1px solid #303030;
+  }
+  
+  section#content div article .itemHeader a {
+    color: #d7d7d7;
+  }
+  
+  section#content aside#categories li a {
+    color: #e4e4e4;
+  }
+  
+  footer {
+    border-top: 2px solid #313131;
+  }
+  input[type=text], textarea {
+    background: #181818;
+    color: #e0e0e0;
+    border: 2px solid #202020;
+  }
+}
