@@ -31,14 +31,10 @@ printf("<p><b>%d</b> messages so far, <b>%d</b> conversations</p>",$cntMessages,
   <script type="text/javascript">
     function drawChart() 
     {
-      google.load('visualization', '1', {
-        packages: ['corechart'],
-        callback: function(){
-
-          // Create and populate the data table.
-          var data = new google.visualization.DataTable();
-          data.addColumn('date', 'Date');
-          data.addColumn('number', 'Message count');
+      // Create and populate the data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Date');
+      data.addColumn('number', 'Message count');
 <?
 $days = 90;
 $_msgCount = SQLLib::SelectRows("SELECT DATE_FORMAT(postDate,'%Y-%m-%d') as d, count(*) as c from messages where DATEDIFF(now(),postDate) < ".$days." group by d order by d");
@@ -47,30 +43,28 @@ for ($x=0,$t=time(); $x<$days; $x++,$t-=60*60*24) $msgCount[date("Y-m-d",$t)] = 
 foreach($_msgCount as $m) $msgCount[$m->d] = $m->c;
 foreach($msgCount as $d=>$c)
 {
-?>          data.addRow([new Date("<?=$d?>"), <?=$c?>]);
+?>      data.addRow([new Date("<?=$d?>"), <?=$c?>]);
 <?
 }
 ?>          
-      
-          // Create and draw the visualization.
-          var parent = document.getElementById('downloadChart');
-          new google.visualization.LineChart(parent).
-            draw(data, {
-              width: parent.width,
-              height: 125,
-              curveType: "function",
-              backgroundColor: "transparent",
-              vAxis: { textPosition: 'in', minValue: 0, viewWindow: { min: 0 }, format: 'short' },
-              hAxis: { textPosition: 'in', viewWindowMode: 'maximized' },
-              legend: { position: 'none' },
-              chartArea: { top: 40, left: 0, width:"100%", height:"100%" },
-              title: 'Messages in the last <?=$days?> days',
-              series: { 0: { color:'#000000' } }
-            });
-        }
-      });
+      // Create and draw the visualization.
+      var parent = document.getElementById('downloadChart');
+      new google.visualization.LineChart(parent).
+        draw(data, {
+          width: parent.width,
+          height: 125,
+          curveType: "function",
+          backgroundColor: "transparent",
+          vAxis: { textPosition: 'in', minValue: 0, viewWindow: { min: 0 }, format: 'short' },
+          hAxis: { textPosition: 'in', viewWindowMode: 'maximized' },
+          legend: { position: 'none' },
+          chartArea: { top: 40, left: 0, width:"100%", height:"100%" },
+          title: 'Messages in the last <?=$days?> days',
+          series: { 0: { color:'#000000' } }
+        });
     }
-    google.setOnLoadCallback(drawChart);
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
   </script>  
 <?
 
