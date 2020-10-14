@@ -1,4 +1,5 @@
 <?php
+// version 0.0.2 (2020-08-22)
 
 class SQLLibException extends Exception 
 { 
@@ -26,11 +27,13 @@ class SQLLib
   protected static $link;
   protected static $charset = "";
   
-  public static function Connect()
+  public static function Connect($host = SQL_HOST, $username = SQL_USERNAME, $password = SQL_PASSWORD, $database = SQL_DATABASE)
   {
-    SQLLib::$link = mysqli_connect(SQL_HOST,SQL_USERNAME,SQL_PASSWORD,SQL_DATABASE);
+    SQLLib::$link = @mysqli_connect($host,$username,$password,$database);
     if (mysqli_connect_errno(SQLLib::$link))
-      die("Unable to connect MySQL: ".mysqli_connect_error());
+    {
+      throw new SQLLibException("Unable to connect MySQL: ".mysqli_connect_error());
+    }
 
     $charsets = array("utf8mb4","utf8");
     SQLLib::$charset = "";
@@ -44,13 +47,18 @@ class SQLLib
     }
     if (!SQLLib::$charset)
     {
-      die("Error loading any of the character sets:");
+      throw new SQLLibException("Error loading any of the character sets.");
     }
   }
 
   public static function Disconnect()
   {
     mysqli_close(SQLLib::$link);
+  }
+  
+  public static function GetCharacterSet()
+  {
+    return SQLLib::$charset;
   }
   
   public static function Escape( $str )
@@ -64,14 +72,14 @@ class SQLLib
     {
       $start = microtime(true);
       $r = @mysqli_query(SQLLib::$link,$cmd);
-      if(!$r) throw new SQLLibException(mysqli_error(SQLLib::$link),0,$cmd);
+      if(!$r) throw new SQLLibException(mysqli_error(SQLLib::$link),mysqli_errno(SQLLib::$link),$cmd);
       $end = microtime(true);
       SQLLib::$queries[$cmd] = $end - $start;
     }
     else
     {
       $r = @mysqli_query(SQLLib::$link,$cmd);
-      if(!$r) throw new SQLLibException(mysqli_error(SQLLib::$link),0,$cmd);
+      if(!$r) throw new SQLLibException(mysqli_error(SQLLib::$link),mysqli_errno(SQLLib::$link),$cmd);
       SQLLib::$queries[] = "*";
     }
 
@@ -378,6 +386,7 @@ class SQLSelect
     }
     return $sql;
   }
+  public function & GetFields() { return $this->fields; }
 }
 
 function sprintf_esc()
