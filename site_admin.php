@@ -47,21 +47,34 @@ foreach($msgCount as $d=>$c)
 <?
 }
 ?>          
+      var isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
       // Create and draw the visualization.
       var parent = document.getElementById('downloadChart');
-      new google.visualization.LineChart(parent).
-        draw(data, {
-          width: parent.width,
-          height: 125,
-          curveType: "function",
-          backgroundColor: "transparent",
-          vAxis: { textPosition: 'in', minValue: 0, viewWindow: { min: 0 }, format: 'short' },
-          hAxis: { textPosition: 'in', viewWindowMode: 'maximized' },
-          legend: { position: 'none' },
-          chartArea: { top: 40, left: 0, width:"100%", height:"100%" },
-          title: 'Messages in the last <?=$days?> days',
-          series: { 0: { color:'#000000' } }
-        });
+      var options = {
+        width: parent.width,
+        height: 125,
+        curveType: "function",
+        backgroundColor: "transparent",
+        vAxis: { textPosition: 'in', minValue: 0, viewWindow: { min: 0 }, format: 'short' },
+        hAxis: { textPosition: 'in', viewWindowMode: 'maximized' },
+        legend: { position: 'none' },
+        chartArea: { top: 40, left: 0, width:"100%", height:"100%" },
+        title: 'Messages in the last <?=$days?> days',
+        series: { 0: { color:'#000000' } }
+      };
+      if (isDarkMode)
+      {
+        options.titleTextStyle = { color: '#ccc' };
+        options.vAxis.textStyle = {color: '#ccc'};
+        options.vAxis.gridlines = {color: '#333'}
+        options.vAxis.minorGridlines = {color: '#333'};
+        options.hAxis.textStyle = {color: '#ccc'};
+        options.hAxis.gridlines = {color: '#333'};
+        options.hAxis.minorGridlines = {color: '#333'};
+        options.series[0].color = '#eeeeee';
+      }
+      new google.visualization.LineChart(parent).draw(data, options);
     }
     google.charts.load('current', {packages: ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
