@@ -1110,4 +1110,7 @@ section#content div article.showcaseitem .itemFooter {
     color: #e0e0e0;
     border: 2px solid #202020;
   }
+  ul#conversation li {
+    background: #2f2f2f;
+  }
 }
