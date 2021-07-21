@@ -1113,4 +1113,7 @@ section#content div article.showcaseitem .itemFooter {
   ul#conversation li {
     background: #2f2f2f;
   }
+  footer div#supporter a#sceneorg {
+    filter: invert(1) saturate(0);
+  }
 }
