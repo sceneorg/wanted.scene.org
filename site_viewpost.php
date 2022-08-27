@@ -25,6 +25,13 @@ if ($_POST && $_SESSION["userID"])
 }
 
 $TITLE = shortify($post->title);
+$metaValues["og:type"] = "website";
+$metaValues["og:site_name"] = "Wanted!";
+$metaValues["twitter:title"] = 
+$metaValues["og:title"] = $post->title;
+$metaValues["twitter:description"] = 
+$metaValues["og:description"] = shortify(preg_replace("/[\\r\\n]/"," ",$post->contents), 300);
+
 include_once("header.inc.php");
 ?>
 <section id="content">

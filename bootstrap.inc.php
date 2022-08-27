@@ -33,4 +33,6 @@ $sceneID->SetScope(array("basic","user:email"));
 $currentUser = null;
 if ($_SESSION["userID"])
   $currentUser = SQLLib::SelectRow(sprintf_esc("select * from users where sceneID = %d",$_SESSION["userID"]));
+  
+$metaValues = array();
 ?>
