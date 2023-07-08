@@ -89,11 +89,11 @@ if ($post->closureReason)
 ?>
     <div class="box">
       <h2><?=$reason?></h2>
-      <?if($desc){?>
+      <?php if($desc){?>
       <div class='body'>
       <?=parse_post($desc)?>
       </div>
-      <?}?>
+      <?php }?>
     </div>
 <?php  
 }

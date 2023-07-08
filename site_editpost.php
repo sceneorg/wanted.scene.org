@@ -125,9 +125,9 @@ include_once("header.inc.php");
         <input type='submit' value='Apply changes'/>
         <div id="removeButtons">
           <input type='submit' name='close' id='closePost' value='Close post'/>
-<?if ($currentUser->isAdmin){?>
+<?php if ($currentUser->isAdmin){?>
           <input type='submit' name='delete' id='deletePost' value='Delete post!'/>
-<?}?>
+<?php }?>
         </div>
       </form>
 

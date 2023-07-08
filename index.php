@@ -65,9 +65,9 @@ $unread = SQLLib::SelectRow( sprintf_esc("select count(*) as cnt from messages w
       <aside id="profile" class="box">
         <h2>Hi, <?=_html($currentUser->displayName)?>!</h2>
         <ul>
-<?if($currentUser->isAdmin){?>
+<?php if($currentUser->isAdmin){?>
           <li><a href="<?=ROOT_URL?>admin/">Admin</a></li>
-<?}?>
+<?php }?>
           <li><a href="<?=ROOT_URL?>profile/">Your settings</a></li>
           <li><a href="<?=ROOT_URL?>show-posts/?mine=true">Your current posts</a></li>
           <li><a href="<?=ROOT_URL?>messages/">Your messages<?=($unread?sprintf(" - <span class='unread'>%d new!</span>",$unread):"")?></a></li>
