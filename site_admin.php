@@ -1,4 +1,4 @@
-<?
+<?php
 global $BODY_ID;
 $BODY_ID = "admin";
 include_once("bootstrap.inc.php");
@@ -19,7 +19,7 @@ include_once("header.inc.php");
       <h2>Admin stuff</h2>
 
       <div class='body'>
-<?
+<?php
 echo "<h3>Message stats</h3>";
 $cntMessages = SQLLib::SelectRow("select count(*) as c from messages")->c;
 $cntUnique = SQLLib::SelectRow("SELECT count(*) as c from (select * from messages group by concat(if(userSender<userRecipient,userSender,userRecipient),':',if(userSender>userRecipient,userSender,userRecipient)) ) as m")->c;
@@ -35,7 +35,7 @@ printf("<p><b>%d</b> messages so far, <b>%d</b> conversations</p>",$cntMessages,
       var data = new google.visualization.DataTable();
       data.addColumn('date', 'Date');
       data.addColumn('number', 'Message count');
-<?
+<?php
 $days = 90;
 $_msgCount = SQLLib::SelectRows("SELECT DATE_FORMAT(postDate,'%Y-%m-%d') as d, count(*) as c from messages where DATEDIFF(now(),postDate) < ".$days." group by d order by d");
 $msgCount = array();
@@ -44,7 +44,7 @@ foreach($_msgCount as $m) $msgCount[$m->d] = $m->c;
 foreach($msgCount as $d=>$c)
 {
 ?>      data.addRow([new Date("<?=$d?>"), <?=$c?>]);
-<?
+<?php
 }
 ?>          
       var isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -79,7 +79,7 @@ foreach($msgCount as $d=>$c)
     google.charts.load('current', {packages: ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
   </script>  
-<?
+<?php
 
 echo "<h3>Recent messages through a post</h3>";
 echo "<ul>";
@@ -115,6 +115,6 @@ echo "</ul>";
   </div>
 </section>
 
-<?
+<?php
 include_once("footer.inc.php");
 ?>

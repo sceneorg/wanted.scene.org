@@ -1,9 +1,10 @@
-<?
+<?php
 class Rewriter
 {
   private $rules = array();
   private $bootstrap = array();
   private $entryPoints = array();
+  private $rootRelativeURL;
   function addRules( $arr )
   {
     if (!is_array($arr))
@@ -51,10 +52,10 @@ class Rewriter
 
     if ($newURL) {
       $newGET = array();
-      parse_str($url_a["query"],$newGET);
+      parse_str(@$url_a["query"]?:"",$newGET);
 
       $url_a = parse_url($newURL);
-      parse_str($url_a["query"],$_GET);
+      parse_str(@$url_a["query"]?:"",$_GET);
 
       $localPath = trim($url_a["path"],"./");
 

@@ -1,4 +1,4 @@
-<?
+<?php
 global $BODY_ID;
 $BODY_ID = "messages";
 include_once("bootstrap.inc.php");
@@ -56,7 +56,7 @@ if ($_GET["recipient"])
 <section id="content">
   <div>
     <div id='messages' class='box'>
-<?
+<?php
 printf("<h2>Conversation with %s</h2>",_html($user->displayName));
 
 SQLLib::UpdateRow("messages",array("read"=>1),sprintf_esc("userSender = %d and userRecipient=%d",$user->sceneID,$_SESSION["userID"]));
@@ -98,7 +98,7 @@ echo "</ul>\n";
 
   </div>
 </section>
-<?
+<?php
 }
 else
 {
@@ -106,7 +106,7 @@ else
 <section id="content">
   <div>
     <div id='messagelist' class='box'>
-<?
+<?php
 printf("<h2>Your conversations</h2>");
 
 $s = new SQLSelect();
@@ -131,7 +131,7 @@ echo "</ul>\n";
     </div>
   </div>
 </section>
-<?
+<?php
 }
 include_once("footer.inc.php");
 ?>

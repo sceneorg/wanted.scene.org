@@ -1,4 +1,4 @@
-<?
+<?php
 global $BODY_ID;
 $BODY_ID = "editpost";
 include_once("bootstrap.inc.php");
@@ -72,7 +72,7 @@ include_once("header.inc.php");
 
       <h2>Post a post!</h2>
 
-      <?
+      <?php
       if ($error)
         printf("<div class='error'>%s</div>",$error);
       ?>
@@ -173,6 +173,6 @@ document.observe("dom:loaded",function(){
 });
 //-->
 </script>
-<?
+<?php
 include_once("footer.inc.php");
 ?>

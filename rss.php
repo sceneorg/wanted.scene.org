@@ -1,4 +1,4 @@
-<?
+<?php
 include_once("bootstrap.inc.php");
 
 header("Content-type: application/rss+xml; charset=utf-8");
@@ -48,7 +48,7 @@ $posts = SQLLib::SelectRows( $sql->GetQuery() );
 		<link><?=ROOT_URL?></link>
 		<atom:link href="<?=ROOT_URL?>rss" rel="self" type="application/rss+xml" />
 		<description>The demoscene's most wanted!</description>
-<? foreach ($posts as $post) { ?>
+<?php foreach ($posts as $post) { ?>
 		<item>
 			<title><?=_html($post->title)?></title>
 			<link><?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?></link>
@@ -58,6 +58,6 @@ $posts = SQLLib::SelectRows( $sql->GetQuery() );
 			<wanted:intent><?=_html($post->intent)?></wanted:intent>
 			<wanted:area><?=_html($post->area)?></wanted:area>
 		</item>
-<? } ?>
+<?php } ?>
   </channel>
 </rss>

@@ -1,4 +1,4 @@
-<?
+<?php
 global $BODY_ID;
 $BODY_ID = "testimonials";
 include_once("bootstrap.inc.php");
@@ -11,7 +11,7 @@ include_once("header.inc.php");
       <h2>Testimonials</h2>
       <p class='body'>Here is a selection of projects where the authors found each other with the help of Wanted. Want to request or offer help yourself? <a href='<?=ROOT_URL?>add-post'>Click here!</a></p>
     </div>
-<?
+<?php
 $sql = new SQLSelect();
 $sql->AddField("posts.*");
 $sql->AddField("users.displayName");
@@ -29,7 +29,7 @@ foreach($posts as $post)
 ?>
       <article class='showcaseitem'>
         <div class='body'>
-          <?
+          <?php
           $c = parse_post($post->closureDescription);
           echo $c;
           ?>
@@ -38,12 +38,12 @@ foreach($posts as $post)
           <span class="author">Original post: <a href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'><?=_html($post->title)?></a> by <?=$post->displayName?></span>
         </div>
       </article>
-<?
+<?php
 }
 ?>
   </div>
 </section>
 
-<?
+<?php
 include_once("footer.inc.php");
 ?>

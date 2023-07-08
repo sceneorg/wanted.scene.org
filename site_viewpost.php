@@ -1,4 +1,4 @@
-<?
+<?php
 global $BODY_ID;
 $BODY_ID = "viewpost";
 include_once("bootstrap.inc.php");
@@ -38,8 +38,8 @@ include_once("header.inc.php");
   <div>
     <article id='singlepost'>
       <div class='itemHeader area_<?=$post->area?> intent_<?=$post->intent?>'>
-<?
-if ( (!$post->closureReason && $post->userID == $_SESSION["userID"]) || ($currentUser && $currentUser->isAdmin) )
+<?php
+if ( (!$post->closureReason && $post->userID == @$_SESSION["userID"]) || ($currentUser && $currentUser->isAdmin) )
 {
   printf("<a href='".ROOT_URL."edit-post/?id=%d' class='editlink'>Edit</a>",$post->id);
 }
@@ -48,7 +48,7 @@ if ( (!$post->closureReason && $post->userID == $_SESSION["userID"]) || ($curren
         <span class="author">Posted by <?=_html($post->displayName)?> <?=sprintf("<time datetime='%s'>%s</time>",$post->postDate,dateDiffReadable(time(),$post->postDate))?></span>
       </div>
       <div class='body'>
-        <?
+        <?php
         if ($post->expiry)
         {
           if ($post->expiry < date("Y-m-d"))
@@ -64,7 +64,7 @@ if ( (!$post->closureReason && $post->userID == $_SESSION["userID"]) || ($curren
         ?>
       </div>
     </article>
-<?
+<?php
 if ($post->closureReason)
 {
   $reason = "";
@@ -95,11 +95,11 @@ if ($post->closureReason)
       </div>
       <?}?>
     </div>
-<?  
+<?php  
 }
 else
 {
-  if ($_SESSION["userID"])
+  if (@$_SESSION["userID"])
   {
     if ($post->userID != $_SESSION["userID"])
     {
@@ -112,7 +112,7 @@ else
         <input type='submit' value='Send message!'/>
       </form>
     </div>
-<?
+<?php
     }
   }
   else
@@ -122,12 +122,12 @@ else
       <h2>Interested? Log in to get in touch with <?=_html($post->displayName)?>!</h2>
       <a href="<?=ROOT_URL?>login/">Log in via SceneID!</a>
     </div>
-<?
+<?php
   }
 }
 ?>
   </div>
 </section>
-<?
+<?php
 include_once("footer.inc.php");
 ?>

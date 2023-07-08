@@ -1,4 +1,4 @@
-<?
+<?php
 global $BODY_ID;
 $BODY_ID = "admin";
 include_once("bootstrap.inc.php");
@@ -29,7 +29,7 @@ include_once("header.inc.php");
 
       <div class='body'>
         <dl>
-<?
+<?php
 $posts = SQLLib::SelectRows(sprintf_esc("SELECT * from posts WHERE closureReason = '%s'",$_GET["reason"]));
 foreach($posts as $p)
 {
@@ -52,6 +52,6 @@ foreach($posts as $p)
   </div>
 </section>
 
-<?
+<?php
 include_once("footer.inc.php");
 ?>

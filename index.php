@@ -1,4 +1,4 @@
-<?
+<?php
 global $BODY_ID;
 $BODY_ID = "frontpage";
 include_once("bootstrap.inc.php");
@@ -8,13 +8,13 @@ include_once("header.inc.php");
   <div>
     <article id="demand">
       <h2>We want</h2>
-<? $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='demand' AND closureReason is NULL AND (expiry IS NULL OR expiry > NOW())")->c; ?>
+<?php $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='demand' AND closureReason is NULL AND (expiry IS NULL OR expiry > NOW())")->c; ?>
       <p>Currently, <?=$count?> people are looking for somebody to help them with their projects!</p>
       <a href="<?=ROOT_URL?>show-posts/?intent=demand">I can help!</a>
     </article>
     <article id="supply">
       <h2>We offer</h2>
-<? $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='supply' AND closureReason is NULL AND (expiry IS NULL OR expiry > NOW())")->c; ?>
+<?php $count = SQLLib::SelectRow("SELECT count(*) AS c FROM posts WHERE intent='supply' AND closureReason is NULL AND (expiry IS NULL OR expiry > NOW())")->c; ?>
       <p>At the same time, <?=$count?> people are offering their skills to help out others!</p>
       <a href="<?=ROOT_URL?>show-posts/?intent=supply">I need help!</a>
     </article>
@@ -29,7 +29,7 @@ include_once("header.inc.php");
 <section id="content">
   <div>
     <div id='news'>
-<?
+<?php
 $posts = SQLLib::SelectRows("SELECT * FROM posts LEFT JOIN users ON users.sceneID = posts.userID WHERE closureReason is NULL ORDER BY postDate DESC LIMIT 5");
 foreach($posts as $post)
 {
@@ -40,7 +40,7 @@ foreach($posts as $post)
           <span class="author">Posted by <?=_html($post->displayName)?> <?=sprintf("<time datetime='%s'>%s</time>",$post->postDate,dateDiffReadable(time(),$post->postDate))?></span>
         </div>
         <div class='body'>
-          <?
+          <?php
           $c = $post->contents;
           $c = shortify($c,500);
           $c = parse_post($c);
@@ -49,7 +49,7 @@ foreach($posts as $post)
           <a class='readmore' href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'>Read more...</a>
         </div>
       </article>
-<?
+<?php
 }
 ?>
   <div id='pagination'>
@@ -58,8 +58,8 @@ foreach($posts as $post)
 
     </div>
     <div id='sidebar'>
-<?
-if ($_SESSION["userID"]) {
+<?php
+if (@$_SESSION["userID"]) {
 $unread = SQLLib::SelectRow( sprintf_esc("select count(*) as cnt from messages where userRecipient = %d and `read` = 0",$_SESSION["userID"]) )->cnt;
 ?>
       <aside id="profile" class="box">
@@ -75,16 +75,16 @@ $unread = SQLLib::SelectRow( sprintf_esc("select count(*) as cnt from messages w
           <li><a href="<?=ROOT_URL?>logout/">Log out</a></li>
         </ul>
       </aside>
-<? } else { ?>
+<?php } else { ?>
       <aside id="login" class="box">
         <h2>Log in!</h2>
         <a href="<?=ROOT_URL?>login/">Log in via SceneID!</a>
       </aside>
-<? } ?>
+<?php } ?>
       <aside id="categories" class="box">
         <h2>Categories</h2>
         <ul>
-<?
+<?php
 $posts = SQLLib::SelectRows("SELECT area, count(*) AS c FROM posts WHERE (expiry IS NULL OR expiry > NOW()) AND closureReason is NULL GROUP BY area ORDER BY area");
 foreach($posts as $post)
 {
@@ -96,7 +96,7 @@ foreach($posts as $post)
   );
 ?>
         <li><a href='<?=ROOT_URL?>show-posts/?area[<?=_html($post->area)?>]=on'><?=_html($names[$post->area])?> <span><?=$post->c?></span></a></li>
-<?
+<?php
 }
 ?>
         </ul>
@@ -109,6 +109,6 @@ foreach($posts as $post)
     </div>
   </div>
 </section>
-<?
+<?php
 include_once("footer.inc.php");
 ?>

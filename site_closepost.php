@@ -1,4 +1,4 @@
-<?
+<?php
 global $BODY_ID;
 $BODY_ID = "closepost";
 include_once("bootstrap.inc.php");
@@ -54,7 +54,7 @@ include_once("header.inc.php");
 
       <h2>Want to close the post "<?=_html($post->title)?>"? Why?</h2>
 
-      <?
+      <?php
       if ($error)
         printf("<div class='error'>%s</div>",$error);
       ?>
@@ -96,6 +96,6 @@ document.observe("dom:loaded",function(){
 });
 //-->
 </script>
-<?
+<?php
 include_once("footer.inc.php");
 ?>

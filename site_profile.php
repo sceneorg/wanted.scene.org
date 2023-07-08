@@ -1,4 +1,4 @@
-<?
+<?php
 global $BODY_ID;
 $BODY_ID = "profile";
 include_once("bootstrap.inc.php");
@@ -35,6 +35,6 @@ include_once("header.inc.php");
     </div>
   </div>
 </section>
-<?
+<?php
 include_once("footer.inc.php");
 ?>

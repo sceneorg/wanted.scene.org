@@ -1,15 +1,15 @@
-<?
+<?php
 function _html( $s )
 {
-  return htmlspecialchars( $s, ENT_QUOTES );
+  return htmlspecialchars( $s ?: "", ENT_QUOTES );
 }
 function _js( $s )
 {
-  return addcslashes( $s, "\x00..\x1f'\"\\/" );
+  return addcslashes( $s ?: "", "\x00..\x1f'\"\\/" );
 }
 function _like( $s )
 {
-  return addcslashes($s,"%_");
+  return addcslashes( $s ?: "", "%_" );
 }
 
 function shortify( $text, $length = 100 )
