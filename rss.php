@@ -8,15 +8,15 @@ echo "<"."?xml version=\"1.0\" encoding=\"UTF-8\"?".">\n";
 $sql = new SQLSelect();
 $sql->AddTable("posts");
 $sql->AddJoin("left","users","users.sceneID = posts.userID");
-if ($_GET["random"]=="full")
+if (@$_GET["random"]=="full")
   $sql->AddOrder("RAND()");
-else if ($_GET["random"]=="weighted")
+else if (@$_GET["random"]=="weighted")
   $sql->AddOrder("IF(DATEDIFF(NOW(),postDate)<30,postDate,RAND()) DESC");
 else
   $sql->AddOrder("postDate DESC");
 $sql->AddWhere("closureReason IS NULL");
 
-if ($_GET["q"])
+if (@$_GET["q"])
 {
   $terms = split_search_terms($_GET["q"]);
   foreach($terms as $term)
@@ -24,7 +24,7 @@ if ($_GET["q"])
     $sql->AddWhere( sprintf_esc("title LIKE '%%%s%%' OR contents LIKE '%%%s%%'",_like($term),_like($term)) );
   }
 }
-if ($_GET["area"])
+if (@$_GET["area"])
 {
   $cond = array();
   foreach($_GET["area"] as $area=>$v)
@@ -33,11 +33,11 @@ if ($_GET["area"])
   }
   $sql->AddWhere("area IN (".implode(",",$cond).")");
 }
-if ($_GET["expired"] != "on") $sql->AddWhere( "expiry IS NULL OR expiry > NOW()" );
+if (@$_GET["expired"] != "on") $sql->AddWhere( "expiry IS NULL OR expiry > NOW()" );
 
-if ($_GET["intent"] == "supply") $sql->AddWhere( "intent='supply'" );
+if (@$_GET["intent"] == "supply") $sql->AddWhere( "intent='supply'" );
 else
-if ($_GET["intent"] == "demand") $sql->AddWhere( "intent='demand'" );
+if (@$_GET["intent"] == "demand") $sql->AddWhere( "intent='demand'" );
 
 $sql->SetLimit(10);
 $posts = SQLLib::SelectRows( $sql->GetQuery() );
