@@ -55,24 +55,24 @@ include_once("header.inc.php");
 
         <label>What do you want to post about?</label>
         <ul>
-          <li><input type='radio' name='intent' value='demand' id='intentDemand'<?=($_POST["intent"]=="demand"?" checked='checked'":"")?> required='yes'/> <label for='intentDemand'>I'm looking for help!</label></li>
-          <li><input type='radio' name='intent' value='supply' id='intentSupply'<?=($_POST["intent"]=="supply"?" checked='checked'":"")?>/> <label for='intentSupply'>I'm offering help!</label></li>
+          <li><input type='radio' name='intent' value='demand' id='intentDemand'<?=(@$_POST["intent"]=="demand"?" checked='checked'":"")?> required='yes'/> <label for='intentDemand'>I'm looking for help!</label></li>
+          <li><input type='radio' name='intent' value='supply' id='intentSupply'<?=(@$_POST["intent"]=="supply"?" checked='checked'":"")?>/> <label for='intentSupply'>I'm offering help!</label></li>
         </ul>
 
         <label>What area are you <span class='supply'>offering</span><span class='neitherIntent'> / </span><span class='demand'>looking for</span> help in?</label>
         <ul>
-          <li><input type='radio' name='area' value='code'    <?=($_POST["area"]=="code"    ?" checked='checked'":"")?> id='areaCode' required='yes'/> <label for='areaCode'>Coding</label></li>
-          <li><input type='radio' name='area' value='graphics'<?=($_POST["area"]=="graphics"?" checked='checked'":"")?> id='areaGraphics'/> <label for='areaGraphics'>Graphics (3D or 2D art, web design, etc.)</label></li>
-          <li><input type='radio' name='area' value='music'   <?=($_POST["area"]=="music"   ?" checked='checked'":"")?> id='areaMusic'/> <label for='areaMusic'>Music / sound design</label></li>
-          <li><input type='radio' name='area' value='other'   <?=($_POST["area"]=="other"   ?" checked='checked'":"")?> id='areaOther'/> <label for='areaOther'>Other areas (party organizing)</label></li>
+          <li><input type='radio' name='area' value='code'    <?=(@$_POST["area"]=="code"    ?" checked='checked'":"")?> id='areaCode' required='yes'/> <label for='areaCode'>Coding</label></li>
+          <li><input type='radio' name='area' value='graphics'<?=(@$_POST["area"]=="graphics"?" checked='checked'":"")?> id='areaGraphics'/> <label for='areaGraphics'>Graphics (3D or 2D art, web design, etc.)</label></li>
+          <li><input type='radio' name='area' value='music'   <?=(@$_POST["area"]=="music"   ?" checked='checked'":"")?> id='areaMusic'/> <label for='areaMusic'>Music / sound design</label></li>
+          <li><input type='radio' name='area' value='other'   <?=(@$_POST["area"]=="other"   ?" checked='checked'":"")?> id='areaOther'/> <label for='areaOther'>Other areas (party organizing)</label></li>
         </ul>
 
         <label>Sum up your <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> in one succinct sentence.</label>
         <small>(E.g.: <span class='demand'>"Looking for Amiga coder", </span><span class='supply'>"Graphics artist looking for group",</span> <span class='demand'>"Need audio for game", </span>...)</small>
-        <input type='text' name='title' required='yes' maxlength='200' value='<?=_html($_POST["title"])?>'/>
+        <input type='text' name='title' required='yes' maxlength='200' value='<?=_html(@$_POST["title"])?>'/>
 
         <label>Describe what you're looking for.</label>
-        <textarea name='contents' required='yes'><?=_html($_POST["contents"])?></textarea>
+        <textarea name='contents' required='yes'><?=_html(@$_POST["contents"])?></textarea>
         <small id='tips'>
           Here are a few tips on what to write:
           <ul>
@@ -93,8 +93,8 @@ include_once("header.inc.php");
 
         <label>How long is the <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> valid for?</label>
         <ul>
-          <li><input type='radio' name='expiry' value='indefinite'<?=($_POST["expiry"]=="indefinite"?" checked='checked'":"")?> id='expiryIndefinite' required='yes'/> <label for='expiryIndefinite'>Indefinitely, the <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> stands until it's removed.</label></li>
-          <li><input type='radio' name='expiry' value='concrete'  <?=($_POST["expiry"]=="concrete"  ?" checked='checked'":"")?> id='expiryConcrete'/> <label for='expiryConcrete'>The <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> expires on</label> <input name='expiryDate' id='expiryDate' value="<?=date("Y-m-d",time() + 60 * 60 * 24 * 30)?>"/></li>
+          <li><input type='radio' name='expiry' value='indefinite'<?=(@$_POST["expiry"]=="indefinite"?" checked='checked'":"")?> id='expiryIndefinite' required='yes'/> <label for='expiryIndefinite'>Indefinitely, the <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> stands until it's removed.</label></li>
+          <li><input type='radio' name='expiry' value='concrete'  <?=(@$_POST["expiry"]=="concrete"  ?" checked='checked'":"")?> id='expiryConcrete'/> <label for='expiryConcrete'>The <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> expires on</label> <input name='expiryDate' id='expiryDate' value="<?=date("Y-m-d",time() + 60 * 60 * 24 * 30)?>"/></li>
         </ul>
 
         <input type='submit' value='Submit post!'/>

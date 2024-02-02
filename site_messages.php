@@ -8,7 +8,7 @@ if (!$_SESSION["userID"])
   header("Location: ".ROOT_URL."login/");
   exit();
 }
-if ($_GET["recipient"])
+if (@$_GET["recipient"])
 {
   $user = SQLLib::SelectRow(sprintf_esc("select * from users where sceneID = %d",$_GET["recipient"]));
   if (!$user)
@@ -50,7 +50,7 @@ if ($_POST)
 }
 
 include_once("header.inc.php");
-if ($_GET["recipient"])
+if (@$_GET["recipient"])
 {
 ?>
 <section id="content">
