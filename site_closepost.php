@@ -63,13 +63,13 @@ include_once("header.inc.php");
 
         <label>Was your post ultimately successful?</label>
         <ul>
-          <li><input type='radio' name='closureReason' value='success' id='closureReasonSuccess'<?=($prev["closureReason"]=="success"?" checked='checked'":"")?> required='yes'/> <label for='closureReasonSuccess'>Yes, I got what I wanted!</label></li>
-          <li><input type='radio' name='closureReason' value='failure' id='closureReasonFailure'<?=($prev["closureReason"]=="failure"?" checked='checked'":"")?>/> <label for='closureReasonFailure'>No, I'm removing the post because I'm no longer interested.</label></li>
-          <li><input type='radio' name='closureReason' value='other' id='closureReasonOther'<?=($prev["closureReason"]=="other"?" checked='checked'":"")?>/> <label for='closureReasonOther'>I want to close the post for some other reason.</label></li>
+          <li><input type='radio' name='closureReason' value='success' id='closureReasonSuccess'<?=(@$prev["closureReason"]=="success"?" checked='checked'":"")?> required='yes'/> <label for='closureReasonSuccess'>Yes, I got what I wanted!</label></li>
+          <li><input type='radio' name='closureReason' value='failure' id='closureReasonFailure'<?=(@$prev["closureReason"]=="failure"?" checked='checked'":"")?>/> <label for='closureReasonFailure'>No, I'm removing the post because I'm no longer interested.</label></li>
+          <li><input type='radio' name='closureReason' value='other' id='closureReasonOther'<?=(@$prev["closureReason"]=="other"?" checked='checked'":"")?>/> <label for='closureReasonOther'>I want to close the post for some other reason.</label></li>
         </ul>
 
         <label class='success other'>Tell us more about <span class='success'>the successful cooperation</span><span class='neither'> / </span><span class='other'>why you want the post closed</span>!</label>
-        <textarea class='success other' name='closureDescription'><?=_html($prev["closureDescription"])?></textarea>
+        <textarea class='success other' name='closureDescription'><?=_html(@$prev["closureDescription"])?></textarea>
         <small class='success other' id='tips'>
           <ul>
             <li class='success'>If you can, feel free to mention who helped you!</li>
