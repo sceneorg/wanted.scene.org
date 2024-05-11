@@ -9,11 +9,11 @@ if (!$currentUser || !$currentUser->isAdmin)
   exit();
 }
 
-if ($_POST["showcaseRemove"])
+if (@$_POST["showcaseRemove"])
 {
   SQLLib::Query(sprintf_esc("update posts set showcase = 0 where id = %d",$_POST["showcaseRemove"]));
 }
-if ($_POST["showcaseAdd"])
+if (@$_POST["showcaseAdd"])
 {
   SQLLib::Query(sprintf_esc("update posts set showcase = 1 where id = %d",$_POST["showcaseAdd"]));
 }
