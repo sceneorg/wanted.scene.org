@@ -458,6 +458,7 @@ article .expiry {
 }
 article .expiry.soon {
   background: #fa0;
+  color: #6e3900;
 }
 article .expiry.done {
   background: #f00;
