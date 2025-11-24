@@ -14,7 +14,7 @@ if (!$post || (($post->userID != $_SESSION["userID"]) && !$currentUser->isAdmin)
   header("Location: ".ROOT_URL."show-posts/");
   exit();
 }
-if ($post->closureReason)
+if ($post->closureReason && !$currentUser->isAdmin)
 {
   header("Location: ".ROOT_URL."post/".(int)$post->id."/".hashify($post->title) );
   exit();
