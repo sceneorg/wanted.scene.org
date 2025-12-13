@@ -139,38 +139,18 @@ include_once("header.inc.php");
 <!--
 function disableDate()
 {
-  $$("input[name=expiryDate]").first().disabled = !$$("input[name=expiry][value=concrete]").first().checked;
+  document.querySelector("input[name=expiryDate]").disabled = !document.querySelector("input[name=expiry][value=concrete]").checked;
 }
-document.observe("dom:loaded",function(){
-  $$("input[name=expiryDate]").first().disabled = true;
-  $$("input[name=expiry]").invoke("observe","click",function(ev){
-    disableDate();
-  });
+document.querySelector("input[name=expiryDate]").disabled = true;
+document.querySelectorAll("input[name=expiry]").forEach(s=>s.onclick = function(ev){
   disableDate();
-  /*
-  $$("input[name=intent]").invoke("observe","click",function(ev){
-    $$(".neitherIntent").invoke("hide");
-    $$(".supply,.demand").invoke("hide");
-    $$("."+ev.element().value).invoke("show");
-  });
-  $$("input[name=area]").invoke("observe","click",function(ev){
-    $$(".neitherArea").invoke("hide");
-    $$(".code,.music,.graphics").invoke("hide");
-    $$("."+ev.element().value).invoke("show");
-  });
-  */
-  Calendar.setup(
-    {
-      dateField: 'expiryDate',
-      triggerElement: 'expiryDate',
-      firstDayOfTheWeek: 1,
-    }
-  );
-  $("deletePost").observe("click",function(ev){
-    if (!confirm("Are you sure you want to delete this post?"))
-      ev.stop();
-  });
 });
+disableDate();
+document.querySelector("#deletePost").onclick = function(ev){
+  if (!confirm("Are you sure you want to delete this post?"))
+    ev.preventDefault();
+};
+
 //-->
 </script>
 <?php

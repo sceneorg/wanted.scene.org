@@ -6,8 +6,6 @@
   <link rel="stylesheet" type="text/css" href="<?=ROOT_URL?>style.css?<?=filemtime("style.css")?>" media="screen" />
   <link rel="shortcut icon" href="<?=ROOT_URL?>favicon.ico" type="image/x-icon"/>
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?=ROOT_URL?>rss/"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
-  <script type="text/javascript" src="<?=ROOT_URL?>calendarview.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
 <?php
   if ($metaValues) foreach ($metaValues as $k=>$v)
@@ -20,10 +18,12 @@
   
 <script type="text/javascript">
 <!--
-document.observe("dom:loaded",function(){
+window.load = function(){
   // browsers should do this by default
-  $$("time").each(function(item){ item.setAttribute("title",item.getAttribute("datetime")); });
-});
+  document.querySelectorAll("time").forEach(function(item){ 
+    item.setAttribute("title",item.getAttribute("datetime"));
+  });
+};
 //-->
 </script>  
 </head>

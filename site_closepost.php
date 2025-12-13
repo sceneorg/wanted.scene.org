@@ -87,12 +87,10 @@ include_once("header.inc.php");
 
 <script type="text/javascript">
 <!--
-document.observe("dom:loaded",function(){
-  $$("input[name=closureReason]").invoke("observe","click",function(ev){
-    $$(".neither").invoke("hide");
-    $$(".success,.failure,.other").invoke("hide");
-    $$("."+ev.element().value).invoke("show");
-  });
+document.querySelectorAll("input[name=closureReason]").forEach(s=>s.onclick = function(ev){
+  document.querySelectorAll(".neither").forEach(s=>s.style.display="none");
+  document.querySelectorAll(".success,.failure,.other").forEach(s=>s.style.display="none");
+  document.querySelectorAll("."+ev.target.value).forEach(s=>s.style.display=null);
 });
 //-->
 </script>

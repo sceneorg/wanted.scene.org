@@ -94,7 +94,7 @@ include_once("header.inc.php");
         <label>How long is the <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> valid for?</label>
         <ul>
           <li><input type='radio' name='expiry' value='indefinite'<?=(@$_POST["expiry"]=="indefinite"?" checked='checked'":"")?> id='expiryIndefinite' required='yes'/> <label for='expiryIndefinite'>Indefinitely, the <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> stands until it's removed.</label></li>
-          <li><input type='radio' name='expiry' value='concrete'  <?=(@$_POST["expiry"]=="concrete"  ?" checked='checked'":"")?> id='expiryConcrete'/> <label for='expiryConcrete'>The <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> expires on</label> <input name='expiryDate' id='expiryDate' value="<?=date("Y-m-d",time() + 60 * 60 * 24 * 30)?>"/></li>
+          <li><input type='radio' name='expiry' value='concrete'  <?=(@$_POST["expiry"]=="concrete"  ?" checked='checked'":"")?> id='expiryConcrete'/> <label for='expiryConcrete'>The <span class='supply'>offer</span><span class='neitherIntent'> / </span><span class='demand'>request</span> expires on</label> <input name='expiryDate' id='expiryDate' type="date" value="<?=date("Y-m-d",time() + 60 * 60 * 24 * 30)?>"/></li>
         </ul>
 
         <input type='submit' value='Submit post!'/>
@@ -106,29 +106,19 @@ include_once("header.inc.php");
 
 <script type="text/javascript">
 <!--
-document.observe("dom:loaded",function(){
-  $$("input[name=expiryDate]").first().disabled = true;
-  $$("input[name=expiry]").invoke("observe","click",function(ev){
-    $$("input[name=expiryDate]").first().disabled = (ev.element().value == "indefinite");
-  });
-  $$("input[name=intent]").invoke("observe","click",function(ev){
-    $$(".neitherIntent").invoke("hide");
-    $$(".supply,.demand").invoke("hide");
-    $$("."+ev.element().value).invoke("show");
-  });
-  $$("input[name=area]").invoke("observe","click",function(ev){
-    $$(".neitherArea").invoke("hide");
-    $$(".code,.music,.graphics").invoke("hide");
-    $$("."+ev.element().value).invoke("show");
-  });
-  Calendar.setup(
-    {
-      dateField: 'expiryDate',
-      triggerElement: 'expiryDate',
-      firstDayOfTheWeek: 1,
-    }
-  );
-
+document.querySelector("input[name=expiryDate]").disabled = true;
+document.querySelectorAll("input[name=expiry]").forEach(s=>s.onclick = function(ev){
+  document.querySelector("input[name=expiryDate]").disabled = (ev.target.value == "indefinite");
+});
+document.querySelectorAll("input[name=intent]").forEach(s=>s.onclick = function(ev){
+  document.querySelectorAll(".neitherIntent").forEach(s=>s.style.display="none");
+  document.querySelectorAll(".supply,.demand").forEach(s=>s.style.display="none");
+  document.querySelectorAll("."+ev.target.value).forEach(s=>s.style.display=null);
+});
+document.querySelectorAll("input[name=area]").forEach(s=>s.onclick = function(ev){
+  document.querySelectorAll(".neitherArea").forEach(s=>s.style.display="none");
+  document.querySelectorAll(".code,.music,.graphics").forEach(s=>s.style.display="none");
+  document.querySelectorAll("."+ev.target.value).forEach(s=>s.style.display=null);
 });
 //-->
 </script>

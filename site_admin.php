@@ -26,15 +26,15 @@ $cntUnique = SQLLib::SelectRow("SELECT count(*) as c from (select * from message
 printf("<p><b>%d</b> messages so far, <b>%d</b> conversations</p>",$cntMessages,$cntUnique);
 
 ?>
-  <div id="downloadChart"></div>
-  <script type="text/javascript" src="//www.google.com/jsapi"></script>
+  <div style="width:100%;height:125px;"><canvas id="downloadChart" style="width:100%;height:125px;"></canvas></div>
+  <script type="text/javascript" src="<?=ROOT_URL?>chart.js"></script>
   <script type="text/javascript">
+    var chart = null;
+    var data = null;
     function drawChart() 
     {
       // Create and populate the data table.
-      var data = new google.visualization.DataTable();
-      data.addColumn('date', 'Date');
-      data.addColumn('number', 'Message count');
+      data = [
 <?php
 $days = 90;
 $_msgCount = SQLLib::SelectRows("SELECT DATE_FORMAT(postDate,'%Y-%m-%d') as d, count(*) as c from messages where DATEDIFF(now(),postDate) < ".$days." group by d order by d");
@@ -43,42 +43,79 @@ for ($x=0,$t=time(); $x<$days; $x++,$t-=60*60*24) $msgCount[date("Y-m-d",$t)] = 
 foreach($_msgCount as $m) $msgCount[$m->d] = $m->c;
 foreach($msgCount as $d=>$c)
 {
-?>      data.addRow([new Date("<?=$d?>"), <?=$c?>]);
+?>        { x: '<?=$d?>', y: <?=$c?> },
 <?php
 }
-?>          
-      var isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
-      // Create and draw the visualization.
-      var parent = document.getElementById('downloadChart');
+?>
+      ];
       var options = {
-        width: parent.width,
-        height: 125,
-        curveType: "function",
-        backgroundColor: "transparent",
-        vAxis: { textPosition: 'in', minValue: 0, viewWindow: { min: 0 }, format: 'short' },
-        hAxis: { textPosition: 'in', viewWindowMode: 'maximized' },
-        legend: { position: 'none' },
-        chartArea: { top: 40, left: 0, width:"100%", height:"100%" },
-        title: 'Messages in the last <?=$days?> days',
-        series: { 0: { color:'#000000' } }
-      };
+        type: 'bar',
+        data: {
+          datasets: [{
+            label: 'Messages',
+            data: data,
+            borderColor: '#000000',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            pointRadius: 5,
+            pointBackgroundColor: 'transparent',
+            pointBorderColor: 'transparent',
+            cubicInterpolationMode: 'monotone',
+          }]
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Messages in the last <?=$days?> days',
+              align: 'start',
+              font: { size: '9px' },
+              color: 'black',
+            },
+            legend: {
+              display: false,
+            }
+          },
+          scales: {
+            x: {
+              grid: { tickLength: 0 },
+              ticks: {
+                includeBounds: true,
+                maxTicksLimit: 11,
+                font: { size: '9px' },
+                callback: function(value, index, ticks) { return value ? data[index].x : ""; }
+              }
+            },
+            y: {
+              beginAtZero: true,
+              suggestedMax: 10,
+              font: { size: '9px' },
+              grid: { tickLength: 0 },
+              ticks: {
+                count: 6,
+                precision: 0,
+                mirror: true,
+                stepSize: 1,
+                labelOffset: 10,
+                font: { size: '9px' },
+                callback: function(value, index, ticks) { return value ? value : ""; }
+              }
+            }
+          }
+        }
+      }
+      
+      var isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
       if (isDarkMode)
       {
-        options.titleTextStyle = { color: '#ccc' };
-        options.vAxis.textStyle = {color: '#ccc'};
-        options.vAxis.gridlines = {color: '#333'}
-        options.vAxis.minorGridlines = {color: '#333'};
-        options.hAxis.textStyle = {color: '#ccc'};
-        options.hAxis.gridlines = {color: '#333'};
-        options.hAxis.minorGridlines = {color: '#333'};
-        options.series[0].color = '#eeeeee';
+        options.data.datasets[0].borderColor = '#ccc';
       }
-      new google.visualization.LineChart(parent).draw(data, options);
+
+      chart = new Chart(document.getElementById('downloadChart'), options);
     }
-    google.charts.load('current', {packages: ['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-  </script>  
+    window.onload = drawChart;
+  </script>
 <?php
 
 echo "<h3>Recent messages through a post</h3>";
