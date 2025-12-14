@@ -55,7 +55,7 @@ foreach($msgCount as $d=>$c)
             label: 'Messages',
             data: data,
             borderColor: '#000000',
-            backgroundColor: 'transparent',
+            backgroundColor: '#000000',
             borderWidth: 2,
             pointRadius: 5,
             pointBackgroundColor: 'transparent',
@@ -110,6 +110,7 @@ foreach($msgCount as $d=>$c)
       if (isDarkMode)
       {
         options.data.datasets[0].borderColor = '#ccc';
+        options.data.datasets[0].backgroundColor = '#ccc';
       }
 
       chart = new Chart(document.getElementById('downloadChart'), options);
