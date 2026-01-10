@@ -48,7 +48,7 @@ foreach($msgCount as $d=>$c)
 }
 ?>
       ];
-      var options = {
+      var params = {
         type: 'bar',
         data: {
           datasets: [{
@@ -70,7 +70,6 @@ foreach($msgCount as $d=>$c)
               text: 'Messages in the last <?=$days?> days',
               align: 'start',
               font: { size: '9px' },
-              color: 'black',
             },
             legend: {
               display: false,
@@ -109,11 +108,13 @@ foreach($msgCount as $d=>$c)
 
       if (isDarkMode)
       {
-        options.data.datasets[0].borderColor = '#ccc';
-        options.data.datasets[0].backgroundColor = '#ccc';
+        params.data.datasets[0].borderColor = '#ccc';
+        params.data.datasets[0].backgroundColor = '#ccc';
+        params.options.scales.x.grid.color = '#333';
+        params.options.scales.y.grid.color = '#333';
       }
 
-      chart = new Chart(document.getElementById('downloadChart'), options);
+      chart = new Chart(document.getElementById('downloadChart'), params);
     }
     window.onload = drawChart;
   </script>
