@@ -24,6 +24,7 @@ include_once("header.inc.php");
   <div>
     <div id='profile' class='box'>
       <h2>Your settings</h2>
+      <?php if($currentUser->email){?>
       <form method='post'>
         <div>
           <input type='checkbox' name='wantsEmail'<?=($currentUser->wantsMail?" checked='checked'":"")?>>
@@ -32,6 +33,9 @@ include_once("header.inc.php");
         <p>Your current email: <b><?=hideEmail($currentUser->email)?></b> - want to change it? <a href="https://id.scene.org/profile">Visit your SceneID profile</a></p>
         <input type='submit' name="submit" value='Apply changes'/>
       </form>
+      <?php }else{?>
+        <p>You have not authorized Wanted to have access to your email address.</p>
+      <?php }?>
     </div>
   </div>
 </section>

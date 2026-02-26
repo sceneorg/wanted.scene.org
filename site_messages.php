@@ -30,7 +30,7 @@ if ($_POST)
       $a["relatedPost"] = $_POST["relatedPost"];
     $id = SQLLib::InsertRow("messages",$a);
 
-    if ($user->wantsMail)
+    if ($user->wantsMail && $user->email)
     {
       $msg = "";
       $msg .= "Hi!\n";
