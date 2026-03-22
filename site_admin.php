@@ -41,6 +41,7 @@ $_msgCount = SQLLib::SelectRows("SELECT DATE_FORMAT(postDate,'%Y-%m-%d') as d, c
 $msgCount = array();
 for ($x=0,$t=time(); $x<$days; $x++,$t-=60*60*24) $msgCount[date("Y-m-d",$t)] = 0;
 foreach($_msgCount as $m) $msgCount[$m->d] = $m->c;
+ksort($msgCount);
 foreach($msgCount as $d=>$c)
 {
 ?>        { x: '<?=$d?>', y: <?=$c?> },
