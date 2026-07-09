@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="<?=ROOT_URL?>favicon.ico" type="image/x-icon"/>
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?=ROOT_URL?>rss/"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0;" />
+  <meta name="theme-color" content="#ff0000" />
 <?php
   if ($metaValues) foreach ($metaValues as $k=>$v)
   {
