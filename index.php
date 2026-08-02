@@ -46,7 +46,7 @@ foreach($posts as $post)
           $c = parse_post($c);
           echo $c;
           ?>
-          <a class='readmore' href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'>Read more...</a>
+          <a class='readmore' href='<?=ROOT_URL?>post/<?=$post->id?>/<?=hashify($post->title)?>'><?=(mb_strlen($post->contents)<500?"View post":"Read more...")?></a>
         </div>
       </article>
 <?php
